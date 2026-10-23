@@ -1,0 +1,194 @@
+/* ==== NAV ==== */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background var(--transition-medium),
+                backdrop-filter var(--transition-medium),
+                border-color var(--transition-medium);
+    border-bottom: 1px solid transparent;
+}
+
+.nav.scrolled {
+    background: rgba(7, 10, 18, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: var(--gold-border);
+}
+
+/* ============================================
+   ЛОГОТИП С ИКОНКОЙ
+   ============================================ */
+.nav__logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    height: 44px;
+}
+
+.nav__logo a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    color: var(--gold);
+    transition: color var(--transition-fast);
+    height: 100%;
+    text-decoration: none;
+}
+
+.nav__logo a:hover {
+    color: var(--gold-soft);
+}
+
+.nav__logo-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 0 16px rgba(201, 162, 39, 0.4);
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav__logo a:hover .nav__logo-icon {
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
+    transform: scale(1.05);
+}
+
+.nav__logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: currentColor;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 1;
+    display: block;
+    margin: 0;
+    padding: 0;
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   ССЫЛКИ
+   ============================================ */
+.nav__links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__item > a {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+    position: relative;
+    padding: 0.5rem 0;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.nav__item > a:hover {
+    color: var(--gold);
+}
+
+.nav__item > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width var(--transition-fast);
+}
+
+.nav__item > a:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   КНОПКА ПОИСКА
+   ============================================ */
+.nav__search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    border: 1px solid var(--gold-border);
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: var(--font-body);
+    flex-shrink: 0;
+}
+
+.nav__search:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+.nav__search-icon {
+    font-size: 0.9rem;
+}
+
+.nav__search-hint {
+    font-size: 0.65rem;
+    opacity: 0.6;
+}
+
+/* ============================================
+   БУРГЕР
+   ============================================ */
+.nav__toggle {
+    display: none;
+    color: var(--gold);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+/* ============================================
+   ВТОРИЧНЫЕ ПУНКТЫ (только в бургере)
+   ============================================ */
+.nav__item--secondary {
+    display: none;
+}
+
+.nav__item--secondary:first-of-type {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--gold-border);
+}
+
+.nav__item--secondary a {
+    opacity: 0.75;
+    font-size: 0.75rem;
+}
+
+.nav__item--secondary a:hover {
+    opacity: 1;
+}

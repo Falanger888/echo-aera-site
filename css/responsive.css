@@ -1,0 +1,523 @@
+/* ==== RESPONSIVE: адаптив ==== */
+
+/* ============================================
+   БОЛЬШОЙ ДЕСКТОП: 1440px+
+   ============================================ */
+@media (min-width: 1440px) {
+    :root {
+        --container-max: 1280px;
+        --section-y: 8rem;
+    }
+}
+
+/* ============================================
+   ПЛАНШЕТ ГОРИЗОНТАЛЬНЫЙ: до 1200px
+   ============================================ */
+@media (max-width: 1200px) {
+    .nav__links {
+        gap: var(--space-5);
+    }
+
+    .nav__links a {
+        font-size: 0.75rem;
+    }
+}
+
+/* ============================================
+   БУРГЕР: до 1100px
+   ============================================ */
+@media (max-width: 1100px) {
+    :root {
+        --section-y: 6rem;
+        --section-x: 1.5rem;
+    }
+
+    /* Показываем бургер */
+    .nav__toggle {
+        display: block;
+    }
+
+    /* Скрываем горизонтальное меню по умолчанию */
+    .nav__links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-4);
+        padding: var(--space-6) var(--space-8);
+        background: rgba(7, 10, 18, 0.98);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--gold-border);
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+
+    .nav__links.open {
+        display: flex;
+    }
+
+    .nav__item {
+        width: 100%;
+    }
+
+    .nav__item>a {
+        width: 100%;
+        padding: var(--space-2) 0;
+        font-size: 0.85rem;
+    }
+
+    /* В бургере вторичные видны */
+    .nav__item--secondary {
+        display: block;
+    }
+
+    /* Отключаем dropdown/mega на узком экране */
+    .nav__item.has-dropdown>a::after {
+        display: none;
+    }
+
+    .nav__dropdown,
+    .nav__mega {
+        display: none !important;
+    }
+
+    /* Скрываем поиск-хинт, оставляем иконку */
+    .nav__search-hint {
+        display: none;
+    }
+
+    /* Hero */
+    .hero {
+        padding: var(--space-20) var(--space-5) var(--space-12);
+    }
+
+    .hero__parallax {
+        display: none;
+    }
+
+    /* Гриды — 2 колонки */
+    .world__grid,
+    .chars-grid,
+    .chars-grid-home,
+    .team__grid,
+    .atlas-grid,
+    .mystery-grid,
+    .region-cities,
+    .conflict-notes,
+    .diplomacy-notes,
+    .philosophy-home__grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    }
+
+    .about__grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Conflict / Compare */
+    .conflict-graph-wrap,
+    .diplomacy-grid-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .compare-preview {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   ПЛАНШЕТ: до 900px
+   ============================================ */
+@media (max-width: 900px) {
+    .conflict-graph {
+        max-width: 100%;
+    }
+}
+
+/* ============================================
+   МОБИЛЬНЫЙ: до 768px
+   ============================================ */
+@media (max-width: 768px) {
+    :root {
+        --section-y: 5rem;
+        --section-x: 1.2rem;
+    }
+
+    .nav {
+        padding: var(--space-4) var(--space-5);
+    }
+
+    /* Гриды — один столбец */
+    .about__grid,
+    .world__grid,
+    .chars-grid,
+    .chars-grid-home,
+    .team__grid,
+    .atlas-grid,
+    .mystery-grid,
+    .region-cities,
+    .conflict-notes,
+    .diplomacy-notes,
+    .philosophy-home__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+
+    /* Devlog */
+    .devlog__item {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+        padding: var(--space-6);
+    }
+
+    .devlog__item:hover {
+        transform: none;
+    }
+
+    .devlog__arrow {
+        display: none;
+    }
+
+    /* Contact */
+    .contact__links {
+        gap: var(--space-4);
+    }
+
+    .contact__link {
+        min-width: 120px;
+        padding: var(--space-5) var(--space-6);
+    }
+
+    /* Hero */
+    .hero {
+        padding: var(--space-20) var(--space-5) var(--space-12);
+    }
+
+    .hero__scroll-hint {
+        display: none;
+    }
+
+    /* Region / Character hero */
+    .region-hero,
+    .character-hero {
+        min-height: 55vh;
+        padding: var(--space-20) var(--space-5) var(--space-8);
+    }
+
+    .region-nav,
+    .character-nav {
+        flex-direction: column;
+    }
+
+    .region-nav__link,
+    .character-nav__link {
+        max-width: 100%;
+    }
+
+    .region-nav__link--next,
+    .character-nav__link--next {
+        text-align: left;
+    }
+
+    /* Page */
+    .page-hero {
+        padding: var(--space-20) var(--space-5) var(--space-8);
+    }
+
+    .page-section {
+        padding: var(--space-12) var(--space-5);
+    }
+
+    /* Timeline */
+    .timeline {
+        padding-left: var(--space-6);
+    }
+
+    .timeline__item {
+        padding: 0 0 var(--space-8) var(--space-6);
+    }
+
+    /* Devlog full */
+    .devlog-full__item {
+        padding: var(--space-6);
+    }
+
+    /* Search modal */
+    .search-modal {
+        padding: var(--space-4);
+    }
+
+    .search-modal__results {
+        max-height: 70vh;
+    }
+
+    /* Compare */
+    .compare-selectors {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+        max-width: 100%;
+    }
+
+    .compare-selector__vs {
+        text-align: center;
+        padding: 0;
+    }
+
+    .compare-table {
+        min-width: 100%;
+    }
+
+    .compare-table__label {
+        width: 120px;
+        padding: var(--space-4);
+        font-size: 0.6rem;
+    }
+
+    .compare-table__cell {
+        padding: var(--space-4);
+        font-size: 0.82rem;
+    }
+
+    /* Sections */
+    .section {
+        padding: var(--section-y) var(--section-x);
+    }
+
+    .section__header {
+        margin-bottom: var(--space-8);
+    }
+}
+
+/* ============================================
+   МОБИЛЬНЫЙ: до 480px
+   ============================================ */
+@media (max-width: 480px) {
+    :root {
+        --section-y: 4rem;
+        --section-x: 1rem;
+        --space-8: 1.5rem;
+        --space-12: 2rem;
+        --space-16: 2.5rem;
+    }
+
+    /* Hero */
+    .hero {
+        padding: var(--space-16) var(--space-4) var(--space-8);
+    }
+
+    .hero__title {
+        font-size: clamp(2.25rem, 12vw, 3.5rem);
+    }
+
+    .hero__subtitle {
+        font-size: var(--fs-base);
+        margin-bottom: var(--space-8);
+    }
+
+    .hero__cta {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero__cta .btn {
+        width: 100%;
+    }
+
+    /* Btn */
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.72rem;
+    }
+
+    .btn--lg {
+        padding: 0.85rem 1.75rem;
+    }
+
+    /* Section */
+    .section__title {
+        font-size: clamp(1.6rem, 6vw, 2.25rem);
+    }
+
+    .section__label {
+        letter-spacing: 0.3em;
+    }
+
+    /* Timeline legend */
+    .timeline-legend {
+        gap: var(--space-2);
+    }
+
+    .timeline-legend__item {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.7rem;
+        letter-spacing: 0.05em;
+    }
+
+    /* Page content */
+    .page-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .page-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .page-content p {
+        font-size: var(--fs-base);
+    }
+
+    /* Cards */
+    .card,
+    .region-card,
+    .char-card,
+    .char-card-home,
+    .mystery-card,
+    .atlas-card,
+    .city-card,
+    .team__card,
+    .conflict-note,
+    .diplomacy-note {
+        padding: var(--space-5);
+    }
+
+    .region-card,
+    .char-card-home,
+    .atlas-card {
+        padding: 0;
+    }
+
+    /* FAQ */
+    .faq__question {
+        padding: var(--space-5) 0;
+        font-size: var(--fs-md);
+    }
+
+    .faq__icon {
+        font-size: var(--fs-lg);
+    }
+
+    /* Scroll top */
+    .scroll-top {
+        bottom: var(--space-4);
+        right: var(--space-4);
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Conflict matrix */
+    .diplomacy-matrix th,
+    .diplomacy-matrix td {
+        padding: var(--space-3) var(--space-2);
+    }
+
+    .diplomacy-matrix__cell {
+        width: 26px;
+        height: 26px;
+        font-size: 0.65rem;
+    }
+
+    /* Compare */
+    .compare-preview__card {
+        padding: var(--space-5) var(--space-4);
+    }
+
+    .compare-preview__emblem {
+        width: 60px;
+        height: 60px;
+    }
+
+    .compare-preview__emblem svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* ============================================
+   ОЧЕНЬ УЗКИЙ: до 360px
+   ============================================ */
+@media (max-width: 360px) {
+    :root {
+        --section-x: 0.85rem;
+    }
+
+    .nav {
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .nav__logo a {
+        font-size: 0.95rem;
+    }
+
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* ============================================
+   PREFERS-REDUCED-MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .cursor-glow,
+    .click-spark,
+    .stars-bg {
+        display: none !important;
+    }
+
+    .tilt {
+        transform: none !important;
+    }
+}
+
+/* ============================================
+   ТАЧ-УСТРОЙСТВА
+   ============================================ */
+@media (hover: none) {
+    .cursor-glow {
+        display: none;
+    }
+
+    .tilt {
+        transform: none !important;
+    }
+
+    /* Отключаем backdrop-filter на тач-устройствах */
+    .card,
+    .region-card,
+    .char-card,
+    .char-card-home,
+    .mystery-card,
+    .atlas-card,
+    .city-card,
+    .team__card,
+    .devlog__item,
+    .contact__link,
+    .conflict-note,
+    .diplomacy-note {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(16, 22, 42, 0.5);
+    }
+}

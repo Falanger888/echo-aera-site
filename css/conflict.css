@@ -1,0 +1,364 @@
+/* ==== DIPLOMACY PAGE ==== */
+
+/* ==== КАРТОЧКИ ФРАКЦИЙ ==== */
+.diplomacy-factions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    gap: 1rem;
+    margin: 3rem 0;
+}
+
+.diplomacy-faction {
+    padding: 1.5rem 1.25rem;
+    border: 1px solid var(--gold-border);
+    background: rgba(16, 22, 42, 0.4);
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    color: inherit;
+    font-family: inherit;
+}
+
+.diplomacy-faction::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--faction-color, var(--gold));
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.diplomacy-faction:hover {
+    border-color: var(--faction-color, var(--gold));
+    transform: translateY(-2px);
+}
+
+.diplomacy-faction:hover::before {
+    opacity: 1;
+}
+
+.diplomacy-faction.active {
+    border-color: var(--faction-color, var(--gold));
+    background: rgba(201, 162, 39, 0.05);
+}
+
+.diplomacy-faction.active::before {
+    opacity: 1;
+}
+
+.diplomacy-faction__status {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--faction-color, var(--gold));
+    margin-bottom: 0.75rem;
+    opacity: 0.8;
+}
+
+.diplomacy-faction__name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+}
+
+.diplomacy-faction__race {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.diplomacy-faction__ruler {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    font-style: italic;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(201, 162, 39, 0.08);
+}
+
+/* ==== ДЕТАЛЬНАЯ ПАНЕЛЬ ==== */
+.diplomacy-detail {
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--gold-border);
+    background: rgba(16, 22, 42, 0.6);
+    animation: fadeUp 0.4s ease;
+}
+
+.diplomacy-detail__head {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gold-border);
+}
+
+.diplomacy-detail__label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.diplomacy-detail__title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--text);
+}
+
+.diplomacy-detail__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: 0.75rem;
+}
+
+.diplomacy-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    background: rgba(7, 10, 18, 0.4);
+    border-left: 3px solid var(--relation-color, #5a5d6b);
+    transition: background 0.3s ease;
+}
+
+.diplomacy-row:hover {
+    background: rgba(201, 162, 39, 0.04);
+}
+
+.diplomacy-row__badge {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--relation-color, #5a5d6b);
+    border: 1px solid currentColor;
+    background: rgba(7, 10, 18, 0.6);
+}
+
+.diplomacy-row__body {
+    flex: 1;
+    min-width: 0;
+}
+
+.diplomacy-row__name {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.diplomacy-row__status {
+    font-size: 0.75rem;
+    color: var(--relation-color, var(--text-muted));
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.85;
+}
+
+/* ==== МАТРИЦА ==== */
+.diplomacy-matrix-wrap {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border: 1px solid var(--gold-border);
+    background: rgba(16, 22, 42, 0.3);
+}
+
+.diplomacy-matrix {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 560px;
+}
+
+.diplomacy-matrix th,
+.diplomacy-matrix td {
+    padding: 0.85rem 0.75rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(201, 162, 39, 0.06);
+    border-right: 1px solid rgba(201, 162, 39, 0.06);
+    font-size: 0.8rem;
+}
+
+.diplomacy-matrix th {
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    background: rgba(201, 162, 39, 0.05);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.diplomacy-matrix th:first-child {
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.diplomacy-matrix td:first-child {
+    text-align: left;
+    padding-left: 1rem;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: var(--text);
+    white-space: nowrap;
+}
+
+.diplomacy-matrix td {
+    position: relative;
+}
+
+.diplomacy-matrix__cell {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid;
+    transition: transform 0.25s ease, background 0.25s ease;
+    cursor: default;
+}
+
+.diplomacy-matrix__cell:hover {
+    transform: scale(1.15);
+}
+
+.diplomacy-matrix__cell--self {
+    background: rgba(201, 162, 39, 0.08);
+    border-color: rgba(201, 162, 39, 0.25);
+    color: var(--gold);
+    cursor: not-allowed;
+}
+
+/* Подсветка строки и колонки при наведении */
+.diplomacy-matrix tbody tr:hover td {
+    background: rgba(201, 162, 39, 0.03);
+}
+
+.diplomacy-matrix tbody tr:hover td:first-child {
+    background: rgba(201, 162, 39, 0.06);
+}
+
+/* ==== ЛЕГЕНДА ==== */
+.diplomacy-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 1.25rem;
+    border: 1px solid var(--gold-border);
+    background: rgba(16, 22, 42, 0.3);
+    margin-top: 1.5rem;
+}
+
+.diplomacy-legend__item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.diplomacy-legend__dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ==== ЗАМЕТКИ ==== */
+.diplomacy-notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.diplomacy-note {
+    padding: 1.5rem;
+    border: 1px solid var(--gold-border);
+    background: linear-gradient(160deg, rgba(16, 22, 42, 0.6), rgba(10, 14, 26, 0.4));
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.diplomacy-note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--note-color, var(--gold));
+    opacity: 0.6;
+}
+
+.diplomacy-note:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.diplomacy-note:hover::before {
+    opacity: 1;
+}
+
+.diplomacy-note__title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    color: var(--gold-soft);
+    margin-bottom: 0.75rem;
+}
+
+.diplomacy-note__text {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.diplomacy-note__tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.diplomacy-note__tag {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+/* ==== МОБИЛЬНАЯ ==== */
+@media (max-width: 640px) {
+    .diplomacy-faction {
+        padding: 1.25rem 1rem;
+    }
+
+    .diplomacy-matrix th,
+    .diplomacy-matrix td {
+        padding: 0.65rem 0.5rem;
+    }
+
+    .diplomacy-matrix__cell {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+}

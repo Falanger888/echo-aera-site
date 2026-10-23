@@ -1,0 +1,581 @@
+/* ==== CARDS: единая система карточек ==== */
+
+/* ============================================
+   БАЗА: все карточки получают этот стиль
+   ============================================ */
+.card,
+.region-card,
+.char-card,
+.char-card-home,
+.mystery-card,
+.atlas-card,
+.city-card,
+.team__card,
+.devlog__item,
+.contact__link,
+.conflict-note,
+.diplomacy-note {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-8);
+    border: 1px solid var(--gold-border);
+    border-radius: var(--radius-none);
+    background:
+        linear-gradient(180deg,
+            rgba(30, 40, 70, 0.35) 0%,
+            rgba(16, 22, 42, 0.25) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    color: inherit;
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        box-shadow var(--transition-base),
+        background var(--transition-base);
+}
+
+/* Верхняя золотая линия — общая для всех */
+.card::before,
+.region-card::before,
+.char-card::before,
+.char-card-home::before,
+.mystery-card::before,
+.atlas-card::before,
+.city-card::before,
+.team__card::before,
+.conflict-note::before,
+.diplomacy-note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--transition-slow);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Hover — общий эффект */
+.card:hover,
+.region-card:hover,
+.char-card:hover,
+.char-card-home:hover,
+.mystery-card:hover,
+.atlas-card:hover,
+.city-card:hover,
+.team__card:hover,
+.conflict-note:hover,
+.diplomacy-note:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold-border-strong);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px var(--gold-glow);
+}
+
+.card:hover::before,
+.region-card:hover::before,
+.char-card:hover::before,
+.char-card-home:hover::before,
+.mystery-card:hover::before,
+.atlas-card:hover::before,
+.city-card:hover::before,
+.team__card:hover::before,
+.conflict-note:hover::before,
+.diplomacy-note:hover::before {
+    transform: scaleX(1);
+}
+
+/* Карточки с картинкой сверху — убираем padding сверху */
+.region-card,
+.char-card-home,
+.atlas-card {
+    padding: 0;
+}
+
+/* ============================================
+   МОДИФИКАТОРЫ
+   ============================================ */
+
+/* Без hover-подъёма */
+.card--static:hover {
+    transform: none;
+}
+
+/* Плоская (без стекла) */
+.card--flat {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg-glass-light);
+    box-shadow: none;
+}
+
+/* Плотное стекло */
+.card--solid {
+    background: linear-gradient(180deg,
+            rgba(30, 40, 70, 0.55) 0%,
+            rgba(16, 22, 42, 0.4) 100%);
+}
+
+/* ============================================
+   РЕГИОНЫ И ПЕРСОНАЖИ (с картинкой сверху)
+   ============================================ */
+
+.region-card__body,
+.char-card-home__body,
+.char-card__body {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    flex-grow: 1;
+}
+
+.region-card .img-slot,
+.char-card .img-slot,
+.char-card-home .img-slot {
+    border: none;
+    border-bottom: 1px solid var(--gold-border);
+    flex-shrink: 0;
+}
+
+/* Специфика региона */
+.region-card__status {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wider);
+    color: var(--gold);
+    padding: 0.3rem 0.7rem;
+    background: rgba(7, 10, 18, 0.85);
+    border: 1px solid var(--gold-border);
+    z-index: 3;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    pointer-events: none;
+}
+
+.region-card__status--outcast {
+    color: var(--c-desert);
+    border-color: rgba(212, 167, 106, 0.4);
+}
+
+.region-card__status--observer {
+    color: var(--c-heavenly);
+    border-color: rgba(180, 167, 214, 0.4);
+}
+
+.region-card--outcast {
+    border-color: rgba(212, 167, 106, 0.2);
+}
+
+.region-card--outcast:hover {
+    border-color: rgba(212, 167, 106, 0.6);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(212, 167, 106, 0.15);
+}
+
+.region-card--observer {
+    border-color: rgba(180, 167, 214, 0.2);
+}
+
+.region-card--observer:hover {
+    border-color: rgba(180, 167, 214, 0.6);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(180, 167, 214, 0.15);
+}
+
+/* ============================================
+   МЕСТНЫЕ КАРТОЧКИ: заголовки и текст
+   ============================================ */
+
+.char-card__role,
+.char-card-home .char-card__role,
+.world__region,
+.atlas-card__type,
+.mystery-card__number,
+.city-card__role {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wider);
+    color: var(--gold);
+    margin-bottom: var(--space-2);
+}
+
+.char-card__name,
+.char-card-home .char-card__name,
+.atlas-card__name,
+.city-card__name {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    color: var(--text);
+    margin-bottom: var(--space-1);
+}
+
+.char-card__epithet,
+.atlas-card__region {
+    font-size: var(--fs-sm);
+    color: var(--gold-soft);
+    font-style: italic;
+    margin-bottom: var(--space-3);
+}
+
+.char-card__desc,
+.region-card__body p,
+.atlas-card__desc,
+.city-card__desc,
+.mystery-card__hint,
+.world__card p {
+    font-size: var(--fs-base);
+    color: var(--text-muted);
+    line-height: var(--lh-base);
+    flex-grow: 1;
+}
+
+/* ============================================
+   MYSTERY CARDS
+   ============================================ */
+
+.mystery-card {
+    padding: var(--space-8);
+}
+
+.mystery-card__number {
+    font-family: var(--font-heading);
+    opacity: 0.6;
+    margin-bottom: var(--space-4);
+}
+
+.mystery-card__question {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    color: var(--text);
+    margin-bottom: var(--space-4);
+    line-height: var(--lh-tight);
+}
+
+.mystery-card__hint {
+    font-style: italic;
+}
+
+/* ============================================
+   TEAM CARDS
+   ============================================ */
+
+.team__card {
+    text-align: center;
+    padding: var(--space-8);
+}
+
+.team__role {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wider);
+    color: var(--gold);
+    margin-bottom: var(--space-3);
+}
+
+.team__name {
+    font-family: var(--font-heading);
+    font-size: var(--fs-md);
+    margin-bottom: var(--space-2);
+    color: var(--text);
+}
+
+.team__desc {
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+}
+
+.team__status {
+    display: inline-block;
+    margin-top: var(--space-4);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--gold-border);
+    color: var(--text-muted);
+}
+
+.team__status--open {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* ============================================
+   DEVLOG (список записей)
+   ============================================ */
+
+.devlog__item {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: var(--space-8);
+    align-items: center;
+    padding: var(--space-6) var(--space-8);
+    cursor: pointer;
+}
+
+.devlog__item::before {
+    /* отключаем верхнюю линию — у devlog своя логика */
+    display: none;
+}
+
+.devlog__item:hover {
+    transform: translateX(6px);
+    border-color: var(--gold);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.devlog__date {
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-base);
+}
+
+.devlog__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-md);
+    color: var(--text);
+}
+
+.devlog__arrow {
+    color: var(--gold);
+    font-size: var(--fs-lg);
+    transition: transform var(--transition-fast);
+}
+
+.devlog__item:hover .devlog__arrow {
+    transform: translateX(6px);
+}
+
+/* ============================================
+   CONTACT LINKS
+   ============================================ */
+
+.contact__links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+    margin-top: var(--space-12);
+}
+
+.contact__link {
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6) var(--space-8);
+    min-width: 140px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.contact__link span {
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+}
+
+.contact__link:hover span {
+    color: var(--gold);
+}
+
+/* ============================================
+   CONFLICT / DIPLOMACY NOTES
+   ============================================ */
+
+.conflict-note,
+.diplomacy-note {
+    padding: var(--space-8);
+}
+
+.conflict-note__title,
+.diplomacy-note__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-md);
+    color: var(--gold-soft);
+    margin-bottom: var(--space-3);
+}
+
+.conflict-note__text,
+.diplomacy-note__text {
+    font-size: var(--fs-base);
+    color: var(--text-muted);
+    line-height: var(--lh-base);
+}
+
+/* ============================================
+   GRIDS (сетки для карточек)
+   ============================================ */
+
+.atlas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: var(--space-6);
+}
+
+.mystery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-12);
+}
+
+.team__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-12);
+}
+
+/* ============================================
+   DEVLOG LIST (обёртка)
+   ============================================ */
+
+.devlog__list {
+    margin-top: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+/* ============================================
+   СЕКЦИИ devlog / team / contact
+   ============================================ */
+
+.devlog {
+    background: var(--grad-section-reverse);
+    border-top: 1px solid var(--gold-border);
+}
+
+.contact {
+    background: linear-gradient(180deg, var(--bg-0) 0%, var(--bg-2) 100%);
+    border-top: 1px solid var(--gold-border);
+    text-align: center;
+}
+
+.contact .section__text {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================
+   МОБИЛЬНАЯ
+   ============================================ */
+
+@media (max-width: 768px) {
+
+    /* Отключаем blur — тормозит на телефонах */
+    .card,
+    .region-card,
+    .char-card,
+    .char-card-home,
+    .mystery-card,
+    .atlas-card,
+    .city-card,
+    .team__card,
+    .devlog__item,
+    .contact__link,
+    .conflict-note,
+    .diplomacy-note {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(16, 22, 42, 0.5);
+    }
+
+    .devlog__item {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+        padding: var(--space-6);
+    }
+
+    .devlog__item:hover {
+        transform: none;
+    }
+
+    .devlog__arrow {
+        display: none;
+    }
+
+    .contact__links {
+        gap: var(--space-4);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .card,
+    .region-card,
+    .char-card,
+    .char-card-home,
+    .mystery-card,
+    .atlas-card,
+    .city-card,
+    .team__card {
+        padding: var(--space-6);
+    }
+
+    .region-card,
+    .char-card-home,
+    .atlas-card {
+        padding: 0;
+    }
+}
+
+/* ============================================
+   PREFERS-REDUCED-MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .card,
+    .region-card,
+    .char-card,
+    .char-card-home,
+    .mystery-card,
+    .atlas-card,
+    .city-card,
+    .team__card,
+    .devlog__item,
+    .contact__link,
+    .conflict-note,
+    .diplomacy-note {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        transition: border-color var(--transition-fast);
+    }
+
+    .card:hover,
+    .region-card:hover,
+    .char-card:hover,
+    .char-card-home:hover,
+    .mystery-card:hover,
+    .atlas-card:hover,
+    .city-card:hover,
+    .team__card:hover,
+    .conflict-note:hover,
+    .diplomacy-note:hover {
+        transform: none;
+    }
+}

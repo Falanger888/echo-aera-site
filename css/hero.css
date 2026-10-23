@@ -1,0 +1,234 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Фон — картинка */
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    border: none;
+    background: var(--bg-0);
+}
+
+.hero__bg img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.hero__bg.loaded img {
+    opacity: 0.55;
+}
+
+/* Плейсхолдер-надпись */
+.hero__bg::before {
+    content: attr(data-label);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    opacity: 0.3;
+}
+
+.hero__bg.loaded::before {
+    display: none;
+}
+
+/* Затемнение поверх картинки */
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(201, 162, 39, 0.15), transparent 55%),
+        radial-gradient(circle at 80% 20%, rgba(80, 50, 140, 0.18), transparent 50%),
+        linear-gradient(180deg, rgba(7, 10, 18, 0.55) 0%, rgba(7, 10, 18, 0.8) 60%, var(--bg-0) 100%);
+    pointer-events: none;
+}
+
+/* Параллакс-свечения */
+.hero__parallax {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero__parallax::before,
+.hero__parallax::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+}
+
+.hero__parallax::before {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(201, 162, 39, 0.4), transparent 70%);
+    top: 10%;
+    left: 15%;
+    animation: floatSlow 18s ease-in-out infinite;
+}
+
+.hero__parallax::after {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(80, 50, 140, 0.4), transparent 70%);
+    bottom: 10%;
+    right: 10%;
+    animation: floatSlow 22s ease-in-out infinite reverse;
+}
+
+@keyframes floatSlow {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(40px, -40px);
+    }
+}
+
+/* Частицы */
+.hero__particles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero__particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 6px var(--gold);
+    animation: particleRise linear infinite;
+}
+
+@keyframes particleRise {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0.5);
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+/* Контент hero */
+.hero__eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1.2s 0.3s forwards;
+    position: relative;
+    z-index: 1;
+}
+
+.hero__title {
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 700;
+    background: linear-gradient(180deg, #f0e6c8 0%, var(--gold) 60%, #6a5016 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 80px rgba(201, 162, 39, 0.4);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 1.4s 0.5s forwards;
+    position: relative;
+    z-index: 1;
+}
+
+.hero__title span {
+    background: linear-gradient(180deg, #fff 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero__subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-muted);
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    opacity: 0;
+    animation: fadeUp 1.4s 0.9s forwards;
+    position: relative;
+    z-index: 1;
+}
+
+.hero__cta {
+    display: inline-flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 1.4s 1.3s forwards;
+    position: relative;
+    z-index: 1;
+}
+
+.hero__scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    transform: translateX(-50%);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1s 2s forwards, pulse 3s 3s infinite;
+}
+
+.hero__scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin: 0.8rem auto 0;
+}

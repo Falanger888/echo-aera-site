@@ -1,0 +1,269 @@
+/* ==== PAGE.CSS: общие стили для region.html и character.html ==== */
+
+/* ============ HERO (общий) ============ */
+.region-hero,
+.character-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 6rem var(--section-x) 3rem;
+    overflow: hidden;
+    z-index: var(--z-base);
+    border-bottom: 1px solid var(--gold-border);
+}
+
+.region-hero__bg,
+.character-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    border: none;
+    border-radius: 0;
+    background: var(--bg-0);
+}
+
+.region-hero__overlay,
+.character-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg,
+            rgba(7, 10, 18, 0.35) 0%,
+            rgba(7, 10, 18, 0.7) 60%,
+            var(--bg-0) 100%);
+    pointer-events: none;
+}
+
+.region-hero__inner,
+.character-hero__inner {
+    max-width: var(--container-max);
+    width: 100%;
+    margin: 0 auto;
+}
+
+.region-hero__label,
+.character-hero__label {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-widest);
+    color: var(--gold);
+    margin-bottom: var(--space-4);
+}
+
+.region-hero__title,
+.character-hero__title {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    margin-bottom: var(--space-4);
+    color: var(--text);
+}
+
+.region-hero__subtitle,
+.character-hero__subtitle {
+    font-size: var(--fs-md);
+    color: var(--text-muted);
+    font-style: italic;
+    max-width: 700px;
+}
+
+/* ============ FACTS (общий) ============ */
+.region-facts,
+.character-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+    gap: var(--space-6);
+    margin: var(--space-12) 0;
+    padding: var(--space-8);
+    border: 1px solid var(--gold-border);
+    background: var(--bg-glass-light);
+}
+
+.region-facts__item,
+.character-facts__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.region-facts__label,
+.character-facts__label {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wider);
+    color: var(--gold);
+}
+
+.region-facts__value,
+.character-facts__value {
+    font-family: var(--font-heading);
+    font-size: var(--fs-md);
+    color: var(--text);
+}
+
+/* ============ DESCRIPTION / BIO ============ */
+.region-description,
+.character-bio {
+    margin-bottom: var(--space-12);
+}
+
+.region-description p,
+.character-bio p {
+    font-size: var(--fs-md);
+    color: var(--text-muted);
+    line-height: var(--lh-loose);
+    margin-bottom: var(--space-5);
+}
+
+.region-description strong,
+.character-bio strong {
+    color: var(--gold-soft);
+    font-weight: 500;
+}
+
+/* ============ CITIES ============ */
+.region-cities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: var(--space-6);
+    margin: var(--space-8) 0 var(--space-12);
+}
+
+.city-card {
+    padding: var(--space-6);
+    border: 1px solid var(--gold-border);
+    background: var(--bg-glass-light);
+    transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.city-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.city-card__name {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    color: var(--gold-soft);
+    margin-bottom: var(--space-2);
+}
+
+.city-card__role {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wider);
+    color: var(--gold);
+    margin-bottom: var(--space-3);
+}
+
+.city-card__desc {
+    font-size: var(--fs-base);
+    color: var(--text-muted);
+    line-height: var(--lh-base);
+}
+
+/* ============ RULERS — общий .chars-grid уже есть в pages.css ============ */
+
+/* ============ LINKS ============ */
+.region-links {
+    list-style: none;
+    margin: var(--space-8) 0;
+}
+
+.region-links li {
+    padding-left: var(--space-6);
+    position: relative;
+    margin-bottom: var(--space-3);
+    color: var(--text-muted);
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+}
+
+.region-links li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+}
+
+.region-links strong {
+    color: var(--gold-soft);
+    font-weight: 500;
+}
+
+/* ============ NAV (общий) ============ */
+.region-nav,
+.character-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: var(--space-16);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--gold-border);
+}
+
+.region-nav__link,
+.character-nav__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    max-width: 45%;
+    transition: color var(--transition-base);
+    color: inherit;
+}
+
+.region-nav__link:hover,
+.character-nav__link:hover {
+    color: var(--gold);
+}
+
+.region-nav__hint,
+.character-nav__hint {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wider);
+    color: var(--text-dim);
+}
+
+.region-nav__title,
+.character-nav__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-base);
+    color: var(--gold-soft);
+}
+
+.region-nav__link--next,
+.character-nav__link--next {
+    text-align: right;
+    margin-left: auto;
+}
+
+/* ============ CHARACTER: RELATED ============ */
+.character-related {
+    /* использует .chars-grid — уже есть в pages.css */
+}
+
+/* ============ МОБИЛЬНАЯ ============ */
+@media (max-width: 640px) {
+
+    .region-hero,
+    .character-hero {
+        min-height: 55vh;
+        padding: 5rem 1.2rem 2rem;
+    }
+
+    .region-nav,
+    .character-nav {
+        flex-direction: column;
+    }
+
+    .region-nav__link,
+    .character-nav__link {
+        max-width: 100%;
+    }
+
+    .region-nav__link--next,
+    .character-nav__link--next {
+        text-align: left;
+    }
+}

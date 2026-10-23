@@ -1,0 +1,240 @@
+/* ==== WORLD: карточки на главной ==== */
+.world__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+    align-items: stretch;
+}
+
+.world__card {
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--gold-border);
+    background: linear-gradient(160deg, rgba(16, 22, 42, 0.7), rgba(10, 14, 26, 0.5));
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        border-color 0.5s ease,
+        box-shadow 0.5s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    min-height: 240px;
+    z-index: 1;
+}
+
+.world__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.6s ease;
+}
+
+.world__card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(201, 162, 39, 0.15), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.world__card:hover::before {
+    transform: scaleX(1);
+}
+
+.world__card:hover::after {
+    opacity: 1;
+}
+
+.world__card:hover {
+    border-color: var(--gold-border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(201, 162, 39, 0.1);
+    z-index: 2;
+}
+
+.world__region {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--gold-border);
+    align-self: flex-start;
+}
+
+.world__card h3 {
+    font-size: 1.35rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.world__card:hover h3 {
+    color: var(--gold-soft);
+}
+
+.world__card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    flex-grow: 1;
+}
+
+.world__arrow {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--gold);
+    transition: transform 0.3s ease;
+    align-self: flex-end;
+}
+
+.world__card:hover .world__arrow {
+    transform: translateX(6px);
+}
+
+/* ==== REGION CARD: карточки регионов с картинками ==== */
+.region-card {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    height: 100%;
+    border: 1px solid var(--gold-border);
+    background: linear-gradient(160deg, rgba(16, 22, 42, 0.7), rgba(10, 14, 26, 0.5));
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    color: inherit;
+    position: relative;
+    z-index: 1;
+}
+
+.region-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold-border-hover);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(201, 162, 39, 0.1);
+    z-index: 2;
+}
+
+.region-card .img-slot {
+    border: none;
+    border-bottom: 1px solid var(--gold-border);
+    flex-shrink: 0;
+}
+
+.region-card__body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.region-card__body h3 {
+    font-size: 1.25rem;
+    color: var(--text);
+    margin: 0;
+}
+
+.region-card__body p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin: 0;
+}
+
+/* ==== REGIONS GROUP (группировка регионов) ==== */
+.regions-group {
+    margin-top: 4rem;
+}
+
+.regions-group:first-of-type {
+    margin-top: 3rem;
+}
+
+.regions-group__head {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gold-border);
+}
+
+.regions-group__title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.regions-group__title::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+.regions-group__desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* Бейдж статуса на карточке */
+.region-card__status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    padding: 0.3rem 0.7rem;
+    background: rgba(7, 10, 18, 0.85);
+    border: 1px solid var(--gold-border);
+    z-index: 3;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    pointer-events: none;
+}
+
+.region-card__status--outcast {
+    color: #d4a76a;
+    border-color: rgba(212, 167, 106, 0.4);
+}
+
+.region-card__status--observer {
+    color: #b4a7d6;
+    border-color: rgba(180, 167, 214, 0.4);
+}
+
+/* Разные бордеры по статусу */
+.region-card--outcast {
+    border-color: rgba(212, 167, 106, 0.2);
+}
+
+.region-card--outcast:hover {
+    border-color: rgba(212, 167, 106, 0.6);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(212, 167, 106, 0.15);
+}
+
+.region-card--observer {
+    border-color: rgba(180, 167, 214, 0.2);
+}
+
+.region-card--observer:hover {
+    border-color: rgba(180, 167, 214, 0.6);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(180, 167, 214, 0.15);
+}

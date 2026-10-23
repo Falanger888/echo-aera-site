@@ -1,0 +1,122 @@
+/* ==== ATLAS PAGE ==== */
+.atlas-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 3rem 0 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--gold-border);
+    background: rgba(16, 22, 42, 0.3);
+}
+
+.atlas-filters__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.atlas-filters__label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-right: 0.5rem;
+    min-width: 60px;
+}
+
+.atlas-filters .timeline-legend__item {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.75rem;
+}
+
+.atlas-counter {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+}
+
+.atlas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 1.5rem;
+}
+
+.atlas-card {
+    display: block;
+    padding: 1.75rem;
+    border: 1px solid var(--gold-border);
+    background: linear-gradient(160deg, rgba(16, 22, 42, 0.6), rgba(10, 14, 26, 0.4));
+    position: relative;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+    color: inherit;
+}
+
+.atlas-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+.atlas-card:hover::before {
+    transform: scaleX(1);
+}
+
+.atlas-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold-border-hover);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.atlas-card__type {
+    display: inline-block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    padding: 0.2rem 0.65rem;
+    border: 1px solid var(--gold-border);
+    margin-bottom: 1rem;
+}
+
+.atlas-card__name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+}
+
+.atlas-card__region {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold-soft);
+    margin-bottom: 1rem;
+    opacity: 0.85;
+}
+
+.atlas-card__desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+    .atlas-filters__group {
+        gap: 0.4rem;
+    }
+
+    .atlas-filters .timeline-legend__item {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.7rem;
+    }
+}

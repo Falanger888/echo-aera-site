@@ -1,0 +1,666 @@
+/* ==== EFFECTS: визуальные приколюшки ==== */
+
+/* ==== КУРСОР-СВЕЧЕНИЕ ==== */
+@media (hover: hover) and (pointer: fine) {
+    .cursor-glow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(201, 162, 39, 0.4), transparent 70%);
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+        will-change: transform;
+        mix-blend-mode: screen;
+    }
+
+    .cursor-glow.hover {
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(circle, rgba(201, 162, 39, 0.25), transparent 70%);
+    }
+
+    .cursor-glow.click {
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(circle, rgba(201, 162, 39, 0.5), transparent 70%);
+    }
+}
+
+@media (max-width: 768px),
+(hover: none) {
+    .cursor-glow {
+        display: none;
+    }
+}
+
+/* ==== ИСКРЫ ПРИ КЛИКЕ ==== */
+.click-spark {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    pointer-events: none;
+    z-index: 9998;
+    box-shadow: 0 0 6px var(--gold);
+    animation: sparkFly 0.8s ease-out forwards;
+}
+
+@keyframes sparkFly {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2);
+    }
+}
+
+.stars-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.star {
+    display: block;
+    pointer-events: none;
+}
+
+@keyframes starTwinkle {
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(0.85);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+}
+
+/* ==== 3D-НАКЛОН КАРТОЧЕК ==== */
+.tilt {
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition-delay: 0s;
+    will-change: transform;
+}
+
+.tilt__content {
+    transform: translateZ(20px);
+    transition: transform 0.4s ease;
+}
+
+.tilt:hover {
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(201, 162, 39, 0.15);
+}
+
+/* Отключаем tilt на тач-устройствах */
+@media (hover: none) {
+    .tilt {
+        transform: none !important;
+    }
+}
+
+/* ==== БЕГУЩИЙ БОРДЕР НА КНОПКАХ ==== */
+.btn--glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn--glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(from 0deg,
+            transparent 0deg,
+            var(--gold) 30deg,
+            transparent 60deg,
+            transparent 360deg);
+    animation: borderRotate 4s linear infinite;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.btn--glow::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: var(--bg-0);
+    z-index: -1;
+    border-radius: inherit;
+    transition: background var(--transition-fast);
+}
+
+.btn--glow:hover::after {
+    background: var(--gold);
+}
+
+.btn--glow:hover {
+    color: var(--bg-0);
+}
+
+@keyframes borderRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==== ПУЛЬСАЦИЯ СЕКЦИЙ ==== */
+.pulse-glow {
+    animation: pulseGlow 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 0 rgba(201, 162, 39, 0));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(201, 162, 39, 0.25));
+    }
+}
+
+/* ==== ГОДЫ В ХРОНОЛОГИИ ==== */
+.timeline__year {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline__item:hover .timeline__year {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
+}
+
+/* ==== ПЛАВНОЕ ПОЯВЛЕНИЕ ЗАГОЛОВКА ==== */
+.reveal.visible .section__title {
+    animation: titleShimmer 2.5s ease-out;
+}
+
+@keyframes titleShimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.section__title {
+    background: linear-gradient(90deg,
+            var(--text) 0%,
+            var(--gold-soft) 50%,
+            var(--text) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==== МАГИЧЕСКОЕ ПОДЧЁРКИВАНИЕ ССЫЛОК ==== */
+.link-magic {
+    position: relative;
+    display: inline-block;
+}
+
+.link-magic::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transition: width 0.4s ease;
+}
+
+.link-magic:hover::after {
+    width: 100%;
+}
+
+/* ==== СВЕЧЕНИЕ КАРТОЧЕК ПРИ HOVER ==== */
+.char-card,
+.region-card,
+.world__card {
+    position: relative;
+}
+
+.char-card::after,
+.region-card::after,
+.world__card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+            rgba(201, 162, 39, 0.15),
+            transparent 40%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.char-card:hover::after,
+.region-card:hover::after,
+.world__card:hover::after {
+    opacity: 1;
+}
+
+/* ==== АНИМАЦИЯ ПЛЕЙСХОЛДЕРОВ ==== */
+.img-slot::before {
+    animation: placeholderShimmer 3s ease-in-out infinite;
+}
+
+@keyframes placeholderShimmer {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+}
+
+/* ==== ОТКЛЮЧЕНИЕ ВСЕХ ЭФФЕКТОВ ПРИ REDUCED MOTION ==== */
+@media (prefers-reduced-motion: reduce) {
+
+    .cursor-glow,
+    .click-spark,
+    .stars-bg {
+        display: none !important;
+    }
+
+    .tilt {
+        transform: none !important;
+    }
+
+    .btn--glow::before,
+    .pulse-glow,
+    .section__title {
+        animation: none !important;
+    }
+
+    .section__title {
+        -webkit-text-fill-color: var(--text);
+        background: none;
+    }
+}
+
+/* ==== ПУЛЬСАЦИЯ HERO-ЗАГОЛОВКА ==== */
+.hero__title {
+    animation: fadeUp 1.4s 0.5s forwards, heroPulse 4s 2s ease-in-out infinite;
+}
+
+@keyframes heroPulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 20px rgba(201, 162, 39, 0.3));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 60px rgba(201, 162, 39, 0.6));
+    }
+}
+
+/* ==== МЕРЦАЮЩИЕ ПОДСКАЗКИ У ЗАГОЛОВКОВ ==== */
+.section__label {
+    position: relative;
+}
+
+.section__label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    transform: translateY(-50%) scale(0);
+    box-shadow: 0 0 8px var(--gold);
+    transition: transform 0.4s ease;
+    animation: labelSpark 2s ease-in-out infinite;
+}
+
+.section__label:hover::after {
+    transform: translateY(-50%) scale(1);
+}
+
+@keyframes labelSpark {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes logoShine {
+
+    0%,
+    80%,
+    100% {
+        left: -100%;
+    }
+
+    40% {
+        left: 100%;
+    }
+}
+
+/* ==== ПРОГРЕСС-ЛИНИЯ ТАЙМЛАЙНА ==== */
+.timeline {
+    position: relative;
+}
+
+.timeline__progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-soft) 100%);
+    box-shadow: 0 0 12px rgba(201, 162, 39, 0.7);
+    z-index: 2;
+    transition: height 0.1s linear;
+    pointer-events: none;
+}
+
+.timeline__progress::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 20px var(--gold), 0 0 40px rgba(201, 162, 39, 0.5);
+    animation: cursorPulse 2s ease-in-out infinite;
+}
+
+@keyframes cursorPulse {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.3);
+    }
+}
+
+/* ==== ЖИВОЙ ТУМАН (3 слоя) ==== */
+.mist {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    background: none;
+    animation: none;
+}
+
+.mist::before,
+.mist::after,
+.mist__layer {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    background:
+        radial-gradient(ellipse 60% 40% at 30% 30%, rgba(40, 60, 120, 0.18), transparent 60%),
+        radial-gradient(ellipse 50% 35% at 70% 60%, rgba(80, 50, 120, 0.15), transparent 60%),
+        radial-gradient(ellipse 40% 30% at 50% 80%, rgba(40, 60, 120, 0.12), transparent 60%);
+}
+
+.mist::before {
+    animation: mistDrift1 40s ease-in-out infinite alternate;
+}
+
+.mist::after {
+    animation: mistDrift2 55s ease-in-out infinite alternate;
+    opacity: 0.6;
+}
+
+.mist__layer {
+    animation: mistDrift3 70s ease-in-out infinite alternate;
+    opacity: 0.4;
+}
+
+@keyframes mistDrift1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-50px, 30px) scale(1.08);
+    }
+}
+
+@keyframes mistDrift2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(60px, -40px) scale(1.1);
+    }
+}
+
+@keyframes mistDrift3 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-80px, -50px) scale(1.15);
+    }
+}
+
+/* ==== ПАРАЛЛАКС-БАЗА ==== */
+.parallax {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+/* ==== ЧАСТИЦЫ РЕГИОНОВ НА КАРТОЧКАХ ==== */
+.region-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.region-card__spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    animation: regionSpark 1s ease-out forwards;
+    z-index: 2;
+}
+
+@keyframes regionSpark {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--sx), var(--sy)) scale(0.2);
+    }
+}
+
+/* ==== ПЕРЕХОД МЕЖДУ СТРАНИЦАМИ ==== */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.4s;
+    }
+
+    ::view-transition-old(root) {
+        animation-name: pageFadeOut;
+    }
+
+    ::view-transition-new(root) {
+        animation-name: pageFadeIn;
+    }
+}
+
+@keyframes pageFadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+}
+
+/* Fallback — оверлей, если View Transitions нет */
+.page-transition {
+    position: fixed;
+    inset: 0;
+    background: #03040a;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.22s ease-out;
+    will-change: opacity;
+}
+
+.page-transition.no-anim {
+    transition: none !important;
+}
+
+.page-transition.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Мягкая золотая вспышка в центре */
+.page-transition::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%,
+            rgba(201, 162, 39, 0.35),
+            transparent 55%);
+    opacity: 0;
+    transition: opacity 0.42s ease;
+}
+
+.page-transition.active::after {
+    opacity: 1;
+}
+
+/* ==== ХЛЕБНЫЕ КРОШКИ ==== */
+.breadcrumbs {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.breadcrumbs a {
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+    color: var(--gold);
+}
+
+.breadcrumbs__sep {
+    color: var(--gold);
+    opacity: 0.4;
+}
+
+.breadcrumbs__current {
+    color: var(--gold-soft);
+}
+
+/* ==== КНОПКА "НАВЕРХ" — усиление ==== */
+.scroll-top {
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.2);
+}
+
+.scroll-top.visible:hover {
+    box-shadow: 0 0 30px rgba(201, 162, 39, 0.5);
+    transform: translateY(-4px);
+}
+
+/* ==== KEN BURNS ДЛЯ HERO ==== */
+@media (prefers-reduced-motion: no-preference) {
+    .hero__bg.loaded img {
+        animation: kenBurns 30s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes kenBurns {
+    0% {
+        transform: scale(1) translate(0, 0);
+        transform-origin: 50% 50%;
+    }
+
+    50% {
+        transform: scale(1.08) translate(-1%, -1%);
+        transform-origin: 55% 45%;
+    }
+
+    100% {
+        transform: scale(1.12) translate(1%, 1%);
+        transform-origin: 45% 55%;
+    }
+}

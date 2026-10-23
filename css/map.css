@@ -1,0 +1,187 @@
+/* ==== WORLD MAP ==== */
+.map-wrap {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.world-map {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+}
+
+.world-map__region {
+    cursor: pointer;
+    transition: filter 0.4s ease, transform 0.4s ease;
+    transform-origin: center;
+}
+
+.world-map__region path,
+.world-map__region rect,
+.world-map__region ellipse {
+    transition: fill 0.4s ease, stroke 0.4s ease, stroke-width 0.4s ease;
+    stroke: rgba(201, 162, 39, 0.5);
+    stroke-width: 1.5;
+}
+
+.world-map__region:hover path,
+.world-map__region:hover rect,
+.world-map__region:hover ellipse {
+    stroke: var(--gold);
+    stroke-width: 2.5;
+    filter: brightness(1.35);
+}
+
+.world-map__region.active path,
+.world-map__region.active rect,
+.world-map__region.active ellipse {
+    stroke: var(--gold);
+    stroke-width: 3;
+    filter: brightness(1.5);
+}
+
+.world-map__region text {
+    fill: var(--text);
+    font-family: var(--font-heading);
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    pointer-events: none;
+    user-select: none;
+}
+
+.world-map__label {
+    fill: var(--gold);
+    font-family: var(--font-heading);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.world-map__region:hover .world-map__label,
+.world-map__region.active .world-map__label {
+    opacity: 1;
+}
+
+/* ============================================
+   ЦВЕТА РЕГИОНОВ — по палитре фракций
+   ============================================ */
+
+/* Люди — золото (Солнечные) */
+.world-map__region--eldarhalm path {
+    fill: #3a2f14;
+}
+
+/* Великаны — голубой лёд (Имирдал) */
+.world-map__region--imirdal path {
+    fill: #1e2a3f;
+}
+
+/* Эльфы — зелёный (Аэнордал) */
+.world-map__region--aenordal path {
+    fill: #1f3320;
+}
+
+/* Болотный народ — бирюза (Болотная) */
+.world-map__region--swamp path {
+    fill: #1a2f33;
+}
+
+/* Изгои — песок (Джаухар) */
+.world-map__region--jauhar path {
+    fill: #3a2e1e;
+}
+
+/* Наблюдатель — приглушённый фиолет (Парящие) */
+.world-map__region--heavenly ellipse {
+    fill: #2b2538;
+    stroke: rgba(140, 130, 170, 0.4);
+}
+
+/* ============================================
+   ПАНЕЛЬ ИНФОРМАЦИИ
+   ============================================ */
+.map-panel {
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--gold-border);
+    background: rgba(16, 22, 42, 0.6);
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+    align-items: start;
+    min-height: 220px;
+    transition: opacity 0.4s ease;
+}
+
+.map-panel__label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.map-panel__title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.map-panel__desc {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+.map-panel__cta {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    transition: letter-spacing 0.3s ease;
+    display: inline-block;
+}
+
+.map-panel__cta:hover {
+    letter-spacing: 0.25em;
+}
+
+.map-panel__cta::after {
+    content: ' →';
+}
+
+.map-panel__status {
+    display: inline-block;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    padding: 0.25rem 0.7rem;
+    border: 1px solid var(--gold-border);
+    margin-bottom: 0.75rem;
+}
+
+.map-panel__status--outcast {
+    color: var(--c-desert);
+    border-color: rgba(212, 167, 106, 0.4);
+}
+
+.map-panel__status--observer {
+    color: var(--c-heavenly);
+    border-color: rgba(180, 167, 214, 0.4);
+}
+
+@media (max-width: 768px) {
+    .map-panel {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+}
