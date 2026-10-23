@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хронология — Эхо Эйры</title>
+    <meta name="description" content="Полная история мира Эйры: от создания до наших дней.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script src="js/head.js"></script>
+</head>
+
+<body>
+
+    <div class="mist"></div>
+    <div data-component="header"></div>
+
+    <header class="page-hero">
+        <div class="page-hero__label">История</div>
+        <h1 class="page-hero__title">Хронология Эйры</h1>
+        <p class="page-hero__subtitle">230 лет. Пять империй. Одна история, которая повторяется.</p>
+    </header>
+
+    <section class="page-section">
+        <div class="container">
+
+            <a href="index.html" class="back-link">На главную</a>
+
+            <div class="timeline-legend reveal">
+                <button class="timeline-legend__item active" data-filter="all" aria-pressed="true">
+                    <span class="timeline-legend__dot" style="background:#c9a227;"></span> Все
+                </button>
+                <button class="timeline-legend__item" data-filter="creation" aria-pressed="false">
+                    <span class="timeline-legend__dot" style="background:#b4a7d6;"></span> Создание
+                </button>
+                <button class="timeline-legend__item" data-filter="people" aria-pressed="false">
+                    <span class="timeline-legend__dot" style="background:#c9a227;"></span> Люди
+                </button>
+                <button class="timeline-legend__item" data-filter="elves" aria-pressed="false">
+                    <span class="timeline-legend__dot" style="background:#6aa84f;"></span> Эльфы
+                </button>
+                <button class="timeline-legend__item" data-filter="giants" aria-pressed="false">
+                    <span class="timeline-legend__dot" style="background:#6fa8dc;"></span> Великаны
+                </button>
+                <button class="timeline-legend__item" data-filter="swamp" aria-pressed="false">
+                    <span class="timeline-legend__dot" style="background:#45818e;"></span> Болота
+                </button>
+                <button class="timeline-legend__item" data-filter="desert" aria-pressed="false">
+                    <span class="timeline-legend__dot" style="background:#d4a76a;"></span> Пустыня
+                </button>
+                <button class="timeline-legend__item" data-filter="legends" aria-pressed="false">
+                    <span class="timeline-legend__dot" style="background:#a64d79;"></span> Легенды
+                </button>
+                <button class="timeline-legend__item" data-filter="dark" aria-pressed="false">
+                    <span class="timeline-legend__dot" style="background:#8b0000;"></span> Тьма
+                </button>
+            </div>
+
+            <div class="timeline" id="timeline">
+
+                <!-- ============ ЭПОХА СОЗДАНИЯ ============ -->
+
+                <div class="timeline__item imp-heavenly reveal" data-imp="creation heavenly">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">До 0 <span class="timeline__imp">Создание</span></div>
+                        <h3 class="timeline__title">Рождение Эйры</h3>
+                        <p class="timeline__who">
+                            <strong>Создатель</strong> — бессмертная сущность. Творец мира.
+                        </p>
+                        <p class="timeline__text">
+                            Создатель формирует материк из пустоты. Создаёт <strong>магию</strong>, <strong>расу
+                                магов</strong> — своих детей, и «низшие» расы, которые почерпнут силу позже. Создаёт
+                            <strong>портал на Парящие острова</strong> и уходит туда наблюдать.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Создано:</strong>
+                            <span>Материк</span>
+                            <span>Магия</span>
+                            <span>Раса магов</span>
+                            <span>Парящие острова</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline__item imp-heavenly reveal" data-imp="creation heavenly">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">До 0 <span class="timeline__imp">Создание</span></div>
+                        <h3 class="timeline__title">Создание джина</h3>
+                        <p class="timeline__who">
+                            <strong>Создатель</strong> создаёт <strong>Хакима-Кадира</strong> — джина-покровителя
+                            пустыни.
+                        </p>
+                        <p class="timeline__text">
+                            Хранитель поручает джину: принимать в пустыню всех изгоев и беглецов. Пустыня становится
+                            нейтральной землёй. Джин получает титул «Мудрый и Способный».
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Хаким-Кадир</span>
+                            <span>Пустыня Джаухар</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline__item imp-heavenly reveal" data-imp="creation heavenly">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 0 <span class="timeline__imp">Создание</span></div>
+                        <h3 class="timeline__title">Пять героев</h3>
+                        <p class="timeline__who">
+                            <strong>Создатель</strong> раздаёт силу <strong>пяти смертным</strong>.
+                        </p>
+                        <p class="timeline__text">
+                            Создатель даёт каждому герою наказ: основать империю и хранить баланс. Уходит на Парящие
+                            острова. В мире остаётся <strong>сломанный посох</strong> — символ утраченной силы. С этого
+                            момента его называют <strong>Хранителем</strong>.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Пятеро героев:</strong>
+                            <span>Элдар (люди)</span>
+                            <span>Аэнор (эльфы)</span>
+                            <span>Имир (великаны)</span>
+                            <span>Ундина (болота)</span>
+                            <span>Джин (пустыня)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ОСНОВАНИЕ ИМПЕРИЙ ============ -->
+
+                <div class="timeline__item imp-people imp-elves imp-giants imp-swamp imp-desert reveal"
+                    data-imp="people elves giants swamp desert">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 10 <span class="timeline__imp">Пять империй</span></div>
+                        <h3 class="timeline__title">Основание империй</h3>
+                        <p class="timeline__who">
+                            Каждый герой основывает свою столицу.
+                        </p>
+                        <p class="timeline__text">
+                            <strong>Элдар</strong> — Элдарград. <strong>Аэнор</strong> — Ирмион в сердце леса.
+                            <strong>Имир</strong> — Имирград в горах. <strong>Ундина</strong> — Мермерия в болотах.
+                            <strong>Джин</strong> — Джаухар в пустыне. Пять империй начинают свой путь.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline__item imp-people reveal" data-imp="people">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 30 <span class="timeline__imp">Люди</span></div>
+                        <h3 class="timeline__title">Зал «Эйра»</h3>
+                        <p class="timeline__who">
+                            <strong>Великий Элдар</strong> — первый король людей, мудрый и храбрый воин.
+                        </p>
+                        <p class="timeline__text">
+                            По наказу Хранителя Элдар строит <strong>Зал «Эйра»</strong> — место сбора правителей всех
+                            империй. Пятеро героев знают его местоположение. Здесь решаются споры между империями.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Все 5 героев</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline__item imp-people reveal" data-imp="people">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 40 <span class="timeline__imp">Люди</span></div>
+                        <h3 class="timeline__title">Солгарфорт</h3>
+                        <p class="timeline__who">
+                            <strong>Строитель Солгар</strong> — второй король людей, сын Элдара.
+                        </p>
+                        <p class="timeline__text">
+                            Солгар основывает <strong>Солгарфорт</strong> — центральный город империи. Налаживает
+                            торговлю между регионами. При нём Солнечные Земли становятся экономическим центром востока.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Родословная:</strong>
+                            <span>Элдар → Солгар</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ВЕЛИКАНЫ ============ -->
+
+                <div class="timeline__item imp-giants reveal" data-imp="giants">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 50 <span class="timeline__imp">Великаны</span></div>
+                        <h3 class="timeline__title">Портал на Парящие острова</h3>
+                        <p class="timeline__who">
+                            <strong>Объединитель Имир</strong> — первый король великанов.
+                        </p>
+                        <p class="timeline__text">
+                            Имир получает от Хранителя задание построить <strong>портал на Парящие острова</strong>.
+                            Строит его в недрах гор. Вскоре умирает. Портал остаётся, но никто не знает, как его
+                            активировать. Гномы позже будут охранять его как святыню.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Хранитель</span>
+                            <span>Парящие острова</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline__item imp-giants reveal" data-imp="giants">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 70 <span class="timeline__imp">Великаны</span></div>
+                        <h3 class="timeline__title">Имирон и Имиронстоун</h3>
+                        <p class="timeline__who">
+                            <strong>Исследователь Имирон</strong> — второй король великанов, сын Имира.
+                        </p>
+                        <p class="timeline__text">
+                            Имирон основывает <strong>Имиронстоун</strong> — город-лабораторию для изучения наследия
+                            Хранителя. Пытается активировать портал, но терпит неудачу. Великаны понимают: портал — не
+                            их сила.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ============ БОЛОТА + ЭЛЬФЫ ============ -->
+
+                <div class="timeline__item imp-swamp imp-elves reveal" data-imp="swamp elves">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 80 <span class="timeline__imp">Болота + Эльфы</span></div>
+                        <h3 class="timeline__title">Ундина и Аэнор</h3>
+                        <p class="timeline__who">
+                            <strong>Первая Ундина</strong> — королева болот, может превращать хвост в ноги.
+                            <strong>Вечный Аэнор</strong> — король эльфов.
+                        </p>
+                        <p class="timeline__text">
+                            Первый контакт болот и эльфов. Ундина приходит на сушу благодаря своему дару. Вместе с
+                            Аэнором основывают <strong>Зелёный Мост</strong> — город на границе двух империй. Эльфы
+                            первыми признают болотный народ равным.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Аэнор</span>
+                            <span>Первая Ундина</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline__item imp-swamp reveal" data-imp="swamp">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 90 <span class="timeline__imp">Болота</span></div>
+                        <h3 class="timeline__title">Цветочный Залив</h3>
+                        <p class="timeline__who">
+                            <strong>Первая Ундина</strong>.
+                        </p>
+                        <p class="timeline__text">
+                            Ундина основывает <strong>Цветочный Залив</strong> — второй город болотной империи. Центр
+                            рыболовства и ремесла. Болота начинают процветать.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ============ ЭЛЬФЫ ============ -->
+
+                <div class="timeline__item imp-elves reveal" data-imp="elves">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Древние времена <span class="timeline__imp">Эльфы</span></div>
+                        <h3 class="timeline__title">Вечный Аэнор</h3>
+                        <p class="timeline__who">
+                            <strong>Вечный Аэнор</strong> — первый и единственный король эльфов. Живёт веками благодаря
+                            pact'у с лесом.
+                        </p>
+                        <p class="timeline__text">
+                            Аэнор основывает <strong>Империю Аэнордал Зелёного Леса</strong>. Строит столицу
+                            <strong>Ирмион</strong> в сердце леса — самое защищённое место. Эльфы хранят <strong>Древо
+                                Мудрости</strong> — источник их знаний.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline__item imp-elves reveal" data-imp="elves">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Древние времена <span class="timeline__imp">Эльфы</span></div>
+                        <h3 class="timeline__title">Священная роща</h3>
+                        <p class="timeline__who">
+                            <strong>Аэнор</strong> и первые эльфы.
+                        </p>
+                        <p class="timeline__text">
+                            Эльфы создают <strong>священные рощи</strong> — места силы, где проводятся ритуалы. В этих
+                            рощах живут <strong>священные животные</strong> — духи-покровители. Одно из них —
+                            <strong>лисёнок</strong>, дух леса.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Лисёнок</span>
+                            <span>Священные животные</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ЛЮДИ + ЭЛЬФЫ ============ -->
+
+                <div class="timeline__item imp-people imp-elves reveal" data-imp="people elves">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 125 <span class="timeline__imp">Люди + Эльфы</span></div>
+                        <h3 class="timeline__title">Элиана и Аэнор</h3>
+                        <p class="timeline__who">
+                            <strong>Мудрая Элиана</strong> — третья королева людей, внучка Элдара. <strong>Вечный
+                                Аэнор</strong>.
+                        </p>
+                        <p class="timeline__text">
+                            Элиана основывает <strong>Элианград</strong> на границе с эльфийским лесом. Встреча с
+                            Аэнором. Основан <strong>Листхорн</strong> — первый город между людьми и эльфами. Начало
+                            торговли и культурного обмена.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Родословная:</strong>
+                            <span>Элдар → Солгар → Элиана</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ЛЕГЕНДА О ЛАРЦЕ ============ -->
+
+                <div class="timeline__item imp-legends reveal" data-imp="legends">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">~ Год 140 <span class="timeline__imp">Легенды</span></div>
+                        <h3 class="timeline__title">Легенда о ларце</h3>
+                        <p class="timeline__who">
+                            <strong>Махмуд</strong> — путешественник из пустыни, хранитель историй.
+                        </p>
+                        <p class="timeline__text">
+                            По пустыне ходит легенда: <strong>ведьмы украли ларец у Ледяного царства</strong> много
+                            столетий назад. В ларце — мудрость и сила, влияющая на баланс мира. Никто не знает, где он.
+                            Махмуд рассказывает эту историю каждому, кто готов слушать.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Ведьмы</span>
+                            <span>Ледяное царство</span>
+                            <span>Ларец</span>
+                            <span>Махмуд</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ПУСТЫНЯ ============ -->
+
+                <div class="timeline__item imp-desert reveal" data-imp="desert">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 150 <span class="timeline__imp">Пустыня</span></div>
+                        <h3 class="timeline__title">Исчезновение джина</h3>
+                        <p class="timeline__who">
+                            <strong>Хаким-Кадир</strong> — джин, покровитель пустыни, первый правитель Джаухара.
+                        </p>
+                        <p class="timeline__text">
+                            Джин внезапно исчезает. Причина неизвестна. Пустыня теряет власть. Что творится там сейчас —
+                            известно только тем, кто рискует туда заходить. Некоторые говорят, что джин всё ещё
+                            наблюдает, но не вмешивается.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Хранитель</span>
+                            <span>Джаухар</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline__item imp-desert reveal" data-imp="desert">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 150+ <span class="timeline__imp">Пустыня</span></div>
+                        <h3 class="timeline__title">Змейка у оазиса</h3>
+                        <p class="timeline__who">
+                            <strong>Змейка</strong> — хранительница тайн пустыни. Живёт у оазиса.
+                        </p>
+                        <p class="timeline__text">
+                            В пустыне живёт змейка, которая знает путь к зеркалу. Она просит воды у путников в обмен на
+                            подсказку. Никто не знает, сколько ей лет и откуда она взялась.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Зеркало</span>
+                            <span>Оазис</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ЛЮДИ + ВЕЛИКАНЫ ============ -->
+
+                <div class="timeline__item imp-people imp-giants reveal" data-imp="people giants">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 155 <span class="timeline__imp">Люди + Великаны</span></div>
+                        <h3 class="timeline__title">Калеб и Имирон</h3>
+                        <p class="timeline__who">
+                            <strong>Ищущий Калеб</strong> — четвёртый король людей, внук Элианы. <strong>Имирон</strong>
+                            — второй король великанов, сын Имира.
+                        </p>
+                        <p class="timeline__text">
+                            Калеб идёт на запад, встречает Имирона. Первый контакт людей и великанов. Основывают
+                            <strong>Калебстоун</strong> (люди) и <strong>Имирфорт</strong> (великаны). Обмен
+                            технологиями: люди дают письменность, великаны — кузнечное дело.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Родословная:</strong>
+                            <span>Элиана → Калеб</span>
+                            <span>Имир → Имирон</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ЛЮДИ + БОЛОТА ============ -->
+
+                <div class="timeline__item imp-people imp-swamp reveal" data-imp="people swamp">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 185 <span class="timeline__imp">Люди + Болота</span></div>
+                        <h3 class="timeline__title">Аэлина и Аквария</h3>
+                        <p class="timeline__who">
+                            <strong>Морская Аэлина</strong> — пятая королева людей, дочь Калеба. <strong>Морская
+                                Аквария</strong> — вторая королева болот, потомок Ундины.
+                        </p>
+                        <p class="timeline__text">
+                            Аэлина идёт на юг. Встречает болотную королеву. Основывают <strong>Азлинборг</strong> (люди)
+                            и <strong>Камышовый Порт</strong> (болота). Начало торговли между людьми и болотами.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Родословная:</strong>
+                            <span>Калеб → Аэлина</span>
+                            <span>Ундина → Аквария</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ЛЮДИ: РАЙК ============ -->
+
+                <div class="timeline__item imp-people reveal" data-imp="people">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 205 <span class="timeline__imp">Люди</span></div>
+                        <h3 class="timeline__title">Правление Райка</h3>
+                        <p class="timeline__who">
+                            <strong>Беспокойный Райк</strong> — шестой король людей, сын Аэлины. Жадный, жестокий,
+                            некомпетентный.
+                        </p>
+                        <p class="timeline__text">
+                            Райк захватывает власть после смерти матери. Начинает войны с соседями, повышает налоги,
+                            раздаёт должности сторонникам. Империя в упадке. Слухи о тирании доходят до эльфов и
+                            великанов.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Родословная:</strong>
+                            <span>Аэлина → Райк</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ЭЛЬФЫ + ВЕЛИКАНЫ ============ -->
+
+                <div class="timeline__item imp-elves imp-giants reveal" data-imp="elves giants">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 210 <span class="timeline__imp">Эльфы + Великаны</span></div>
+                        <h3 class="timeline__title">Аэнор и Криомир</h3>
+                        <p class="timeline__who">
+                            <strong>Вечный Аэнор</strong> и <strong>Мудрый Криомир</strong> — третий король великанов,
+                            внук Имирона.
+                        </p>
+                        <p class="timeline__text">
+                            Второй контакт эльфов и великанов. Основывают <strong>Стормбридж</strong> (великаны) и
+                            <strong>Элдормир</strong> (эльфы). Аэнор записывает: «Люди перестали уважать природу.
+                            Великаны знают больше — к ним стоит прислушаться».
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Родословная:</strong>
+                            <span>Имир → Имирон → Криомир</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ЛЕГЕНДА О СВЯЩЕННИКЕ ============ -->
+
+                <div class="timeline__item imp-legends reveal" data-imp="legends">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">~ Год 220 <span class="timeline__imp">Легенды</span></div>
+                        <h3 class="timeline__title">Священник в лесу</h3>
+                        <p class="timeline__who">
+                            <strong>Старец</strong> — отшельник, живёт в глубине леса. Никто не знает его имени.
+                        </p>
+                        <p class="timeline__text">
+                            В лесу Аэнордал живёт отшельник. Говорят, он пускает к себе только тех, кто совершил добрые
+                            дела. Дети рассказывают о нём как о «добром дяде». Кто он на самом деле — неизвестно.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Аэнордал</span>
+                            <span>Лисёнок</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ ТЬМА ============ -->
+
+                <div class="timeline__item imp-dark reveal" data-imp="dark">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 225 <span class="timeline__imp">Тьма</span></div>
+                        <h3 class="timeline__title">Пробуждение ведьм</h3>
+                        <p class="timeline__who">
+                            <strong>Ведьмы</strong> — зарождающееся зло. Зависть, отчаяние, тьма.
+                        </p>
+                        <p class="timeline__text">
+                            В тени лесов и болот пробуждается то, что долго спало. <strong>Ведьмы</strong> — не раса, не
+                            народ. Это сила, рождённая из зависти и отчаяния. Они ищут «короля», который откроет им
+                            путь. Они начинают призывать героев в Эйру.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Ларец</span>
+                            <span>Хранитель</span>
+                            <span>Игроки</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ НАШИ ДНИ ============ -->
+
+                <div class="timeline__item imp-neutral reveal" data-imp="neutral">
+                    <div class="timeline__item-inner">
+                        <div class="timeline__year">Год 230+ <span class="timeline__imp">Наши дни</span></div>
+                        <h3 class="timeline__title">Начало твоего пути</h3>
+                        <p class="timeline__who">
+                            <strong>Ты</strong> — безымянный герой, пробудившийся у озера. Никто. Все. Пока не решил.
+                        </p>
+                        <p class="timeline__text">
+                            Солнечные Земли на грани войны. Болота плетут интриги. Великаны охраняют портал. Эльфы
+                            наблюдают. Ведьмы ищут короля. Ты входишь в Эйру. Что будет дальше — зависит от твоих
+                            решений.
+                        </p>
+                        <div class="timeline__links">
+                            <strong>Связано с:</strong>
+                            <span>Все империи</span>
+                            <span>Хранитель</span>
+                            <span>Ведьмы</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="timeline-empty" id="timelineEmpty" style="display: none;">
+                Нет событий по выбранному фильтру.
+            </div>
+
+        </div>
+    </section>
+
+    <div data-component="footer"></div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

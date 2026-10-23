@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О мире — Эхо Эйры</title>
+    <meta name="description"
+        content="Четыре империи, одна пустыня, одно небо. Мир Эйры — фракции, изгой и наблюдатель.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            background: #03040a;
+            margin: 0;
+            color: #d8d8dc;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+    </style>
+
+    <script src="js/head.js"></script>
+</head>
+
+<body>
+
+    <div class="mist"></div>
+    <div data-component="header"></div>
+
+    <header class="page-hero">
+        <div class="page-hero__label">Лор</div>
+        <h1 class="page-hero__title">О мире Эйры</h1>
+        <p class="page-hero__subtitle">Четыре империи. Одна пустыня. Одно небо.</p>
+    </header>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="page-content reveal">
+                <a href="index.html" class="back-link">На главную</a>
+
+                <h2>Эйра</h2>
+                <p><strong>Эйра</strong> — мир, разделённый на четыре империи, одну пустыню и одно небо. У каждой
+                    фракции — своя раса, культура, религия и история. Люди строят крепости, великаны куют оружие,
+                    эльфы хранят знания, русалки плетут интриги.</p>
+                <p>Мир не был создан «с нуля» — он был обжит веками. И за эти века накопилось больше конфликтов, чем
+                    можно решить миром.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ КАРТА ============ -->
+    <section class="map-section section" id="map">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Карта</div>
+                <h2 class="section__title">Стороны Эйры</h2>
+                <p class="section__text">Кликни по региону, чтобы узнать больше.</p>
+            </div>
+
+            <div class="reveal" data-component="world-map"></div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="page-content reveal">
+
+                <h2>Стороны Эйры</h2>
+                <p>Четыре играбельные фракции, один изгой и один наблюдатель. Каждая — со своей столицей, городами,
+                    армией и внешней политикой. Игрок волен выбрать любую — или уйти в пустыню, где принимают всех.</p>
+
+                <h3>Четыре фракции</h3>
+                <p>Играбельные империи. Равнинная (люди), Лесная (эльфы), Ледяная (великаны) и Болотная (русалки).
+                    Каждая — со своей философией, экономикой и ролью в мире.</p>
+
+                <h3>Изгой — Пустыня Джаухар</h3>
+                <p>Территория свободного PvP. Здесь нет правителя, нет законов — только гильдии, договоры и песок.
+                    Убежище для всех, кому нет места среди своих.</p>
+
+                <h3>Наблюдатель — Парящие Острова</h3>
+                <p>Финальная локация. Отдельный слой реальности, куда попадают лишь в конце пути. Здесь живёт
+                    Хранитель — тот, кто смотрит.</p>
+
+            </div>
+
+            <div class="page-content reveal">
+
+                <h2>Четыре фракции</h2>
+
+                <h3>Солнечные Земли Империи Элдерхальм</h3>
+                <p>Империя людей. Равнины, торговые пути, крепости и города, названные в честь правителей. Здесь
+                    начинается путь большинства героев.</p>
+
+                <h3>Громовой Имирдал Вечных Льдов</h3>
+                <p>Ледяные горы великанов. Вечные льды, громо-звери, портал на Парящие Острова.</p>
+
+                <h3>Империя Аэнордал Зелёного Леса</h3>
+                <p>Вечный лес эльфов. Древо Мудрости, священные рощи, тишина.</p>
+
+                <h3>Болотная Империя</h3>
+                <p>Русалки, рыболюди, ящеролюди, амфибии. Внутренние конфликты, пророчества, Зал Будущего.</p>
+
+                <h2>За пределами фракций</h2>
+
+                <h3>Пустыня Джаухар</h3>
+                <p>Нейтральная земля изгоев. Джин, три города, гробница первого короля.</p>
+
+                <h3>Парящие Острова</h3>
+                <p>Магия, знания, Хранитель. Место, откуда видно весь мир.</p>
+
+            </div>
+
+            <div class="page-content reveal">
+
+                <h2>Что важно знать</h2>
+                <ul>
+                    <li><strong>PvP везде, где есть спор.</strong> За территорию, за ресурсы, за право прохода.</li>
+                    <li><strong>Гильдии — основа политики.</strong> Захват замков, налоги, союзы, предательства.</li>
+                    <li><strong>Ресурсы ограничены.</strong> Кто контролирует рудники и торговые пути — тот
+                        контролирует всё.</li>
+                    <li><strong>Фракции разные.</strong> Но ни одна не «сильнее» — только удобнее для конкретной роли.
+                    </li>
+                    <li><strong>Пустыня — против всех.</strong> Здесь нет фракций, только гильдии и договоры.</li>
+                    <li><strong>Парящие — финал.</strong> Пока ты не дошёл — туда не попасть.</li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <div data-component="footer"></div>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

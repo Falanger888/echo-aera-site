@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регион — Эхо Эйры</title>
+    <meta name="description" content="Регион мира Эйры.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="js/head.js"></script>
+    <link rel="stylesheet" href="css/placeholders.css">
+</head>
+
+<body>
+
+    <div class="mist"></div>
+    <div data-component="header"></div>
+
+    <header class="region-hero">
+
+        <div class="region-hero__bg img-slot" data-label="Загрузка...">
+            <img src="" alt="">
+        </div>
+        <div class="region-hero__overlay"></div>
+
+        <div class="region-hero__inner">
+            <div class="region-hero__label">Регион</div>
+            <h1 class="region-hero__title">Загрузка...</h1>
+            <p class="region-hero__subtitle"></p>
+        </div>
+    </header>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="page-content">
+
+                <nav class="breadcrumbs" id="regionBreadcrumbs">
+                    <a href="index.html">Главная</a>
+                    <span class="breadcrumbs__sep">›</span>
+                    <a href="world.html">Мир</a>
+                    <span class="breadcrumbs__sep">›</span>
+                    <span class="breadcrumbs__current" id="regionBreadcrumbCurrent">Загрузка…</span>
+                </nav>
+
+                <div class="region-facts"></div>
+
+                <div class="region-description"></div>
+
+                <h2>Города</h2>
+                <div class="region-cities"></div>
+
+                <h2>Правители</h2>
+                <div class="chars-grid region-rulers"></div>
+
+                <h2>Связи</h2>
+                <ul class="region-links"></ul>
+
+                <nav class="region-nav"></nav>
+
+            </div>
+        </div>
+    </section>
+
+    <div data-component="footer"></div>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

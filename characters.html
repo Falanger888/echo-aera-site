@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Персонажи — Эхо Эйры</title>
+    <meta name="description"
+        content="Правители и герои Эйры: основатели империй, короли Солнечных Земель, Хранитель и загадочный джин пустыни.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="js/head.js"></script>
+</head>
+
+<body>
+
+    <div class="mist"></div>
+    <div data-component="header"></div>
+
+    <header class="page-hero">
+        <div class="page-hero__label">Лица Эйры</div>
+        <h1 class="page-hero__title">Персонажи</h1>
+        <p class="page-hero__subtitle">Те, кто правил до тебя. Те, кто правит сейчас. Те, кого лучше не встречать.</p>
+    </header>
+
+    <section class="page-section">
+        <div class="container">
+            <a href="index.html" class="back-link">На главную</a>
+
+            <div class="timeline-legend reveal" id="charFilters">
+                <button class="timeline-legend__item active" data-filter="all">Все</button>
+                <button class="timeline-legend__item" data-filter="people">Люди</button>
+                <button class="timeline-legend__item" data-filter="elves">Эльфы</button>
+                <button class="timeline-legend__item" data-filter="giants">Великаны</button>
+                <button class="timeline-legend__item" data-filter="swamp">Болота</button>
+                <button class="timeline-legend__item" data-filter="desert">Пустыня</button>
+                <button class="timeline-legend__item" data-filter="heavenly">Парящие</button>
+            </div>
+
+            <div class="chars-grid" id="charsGrid">
+
+                <a href="character.html?id=eldar" class="char-card reveal" data-race="people">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/eldar.jpg">
+                        <img src="images/characters/eldar.jpg" alt="Великий Элдар" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Люди · Первый король</div>
+                        <div class="char-card__name">Великий Элдар</div>
+                        <div class="char-card__epithet">«Тот, кто объединил»</div>
+                    </div>
+                </a>
+
+                <a href="character.html?id=imir" class="char-card reveal" data-race="giants">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/imir.jpg">
+                        <img src="images/characters/imir.jpg" alt="Объединитель Имир" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Великаны · Первый король</div>
+                        <div class="char-card__name">Объединитель Имир</div>
+                        <div class="char-card__epithet">«Голос гор»</div>
+                    </div>
+                </a>
+
+                <a href="character.html?id=aenor" class="char-card reveal" data-race="elves">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/aenor.jpg">
+                        <img src="images/characters/aenor.jpg" alt="Вечный Аэнор" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Эльфы · Вечный король</div>
+                        <div class="char-card__name">Вечный Аэнор</div>
+                        <div class="char-card__epithet">«Тот, кто помнит всё»</div>
+                    </div>
+                </a>
+
+                <a href="character.html?id=undine" class="char-card reveal" data-race="swamp">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/undine.jpg">
+                        <img src="images/characters/undine.jpg" alt="Первая Ундина" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Болота · Первая королева</div>
+                        <div class="char-card__name">Первая Ундина</div>
+                        <div class="char-card__epithet">«Та, что ходит по земле»</div>
+                    </div>
+                </a>
+
+                <a href="character.html?id=hakim" class="char-card reveal" data-race="desert">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/hakim.jpg">
+                        <img src="images/characters/hakim.jpg" alt="Хаким-Кадир" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Пустыня · Первый правитель</div>
+                        <div class="char-card__name">Хаким-Кадир</div>
+                        <div class="char-card__epithet">«Мудрый и Способный»</div>
+                    </div>
+                </a>
+
+                <a href="character.html?id=creator" class="char-card reveal" data-race="heavenly">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/creator.jpg">
+                        <img src="images/characters/creator.jpg" alt="Создатель" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Парящие · Хранитель</div>
+                        <div class="char-card__name">Создатель</div>
+                        <div class="char-card__epithet">«Тот, кто смотрит»</div>
+                    </div>
+                </a>
+
+                <a href="character.html?id=solgar" class="char-card reveal" data-race="people">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/solgar.jpg">
+                        <img src="images/characters/solgar.jpg" alt="Строитель Солгар" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Люди · Правитель</div>
+                        <div class="char-card__name">Строитель Солгар</div>
+                    </div>
+                </a>
+
+                <a href="character.html?id=eliana" class="char-card reveal" data-race="people">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/eliana.jpg">
+                        <img src="images/characters/eliana.jpg" alt="Мудрая Элиана" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Люди · Правительница</div>
+                        <div class="char-card__name">Мудрая Элиана</div>
+                    </div>
+                </a>
+
+                <a href="character.html?id=caleb" class="char-card reveal" data-race="people">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/caleb.jpg">
+                        <img src="images/characters/caleb.jpg" alt="Ищущий Калеб" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Люди · Правитель</div>
+                        <div class="char-card__name">Ищущий Калеб</div>
+                    </div>
+                </a>
+
+                <a href="character.html?id=aelina" class="char-card reveal" data-race="people">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/aelina.jpg">
+                        <img src="images/characters/aelina.jpg" alt="Морская Аэлина" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Люди · Правительница</div>
+                        <div class="char-card__name">Морская Аэлина</div>
+                    </div>
+                </a>
+
+                <a href="character.html?id=raik" class="char-card reveal" data-race="people">
+                    <figure class="img-slot img-slot--3x4" data-label="images/characters/raik.jpg">
+                        <img src="images/characters/raik.jpg" alt="Беспокойный Райк" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card__body">
+                        <div class="char-card__role">Люди · Тиран</div>
+                        <div class="char-card__name">Беспокойный Райк</div>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="timeline-empty" id="charsEmpty" style="display: none;">
+                Нет персонажей по выбранному фильтру.
+            </div>
+        </div>
+    </section>
+
+    <div data-component="footer"></div>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

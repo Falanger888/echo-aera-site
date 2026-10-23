@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эхо Эйры — MMORPG в жанре Dark Fantasy</title>
+    <meta name="description"
+        content="Четыре империи. Одна пустыня. Одно небо. Война, которая никогда не заканчивается.">
+    <meta property="og:title" content="Эхо Эйры — MMORPG в жанре Dark Fantasy">
+    <meta property="og:description"
+        content="Четыре империи. Одна пустыня. Одно небо. Война, которая никогда не заканчивается.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og/cover.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        html,
+        body {
+            background: #03040a;
+            margin: 0;
+            color: #d8d8dc;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+    </style>
+    <script src="js/head.js"></script>
+</head>
+
+<body>
+
+    <div class="mist"></div>
+    <div data-component="header"></div>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero">
+        <div class="hero__bg img-slot" data-region="hero" data-label="images/hero/hero-bg.jpg" data-parallax="0.3">
+            <img src="images/hero/hero-bg.jpg" alt="" loading="eager"
+                onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="hero__particles" id="heroParticles"></div>
+
+        <div class="hero__eyebrow">MMORPG · Dark Fantasy</div>
+        <h1 class="hero__title">Эхо <span>Эйры</span></h1>
+        <p class="hero__subtitle">Четыре империи. Одна пустыня. Одно небо. Война, которая никогда не заканчивается.</p>
+        <div class="hero__cta">
+            <a href="prologue.html" class="btn">Начать путь</a>
+            <a href="#map" class="btn btn--ghost">Карта мира</a>
+        </div>
+        <div class="hero__scroll-hint">Листай вниз</div>
+    </header>
+
+    <!-- ============ О МИРЕ ============ -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">О мире</div>
+                <h2 class="section__title">Четыре империи. Одна пустыня. Одно небо.</h2>
+                <p class="section__text">
+                    Люди, эльфы, великаны и русалки делят землю Эйры. Четыре фракции, четыре философии, четыре
+                    взгляда на мир. Между ними — нейтральные земли и пустыня, где находят приют всем, кому нет места
+                    среди своих.
+                </p>
+                <p class="section__text">
+                    А ещё есть небо. Парящие Острова — место, куда никто не долетает. Там ждёт Хранитель. Что он
+                    скажет — узнают лишь те, кто дойдёт.
+                </p>
+            </div>
+
+            <div class="about__grid">
+                <div class="about__feature reveal">
+                    <h3>Открытый мир</h3>
+                    <p>Пять регионов, десятки городов и деревень, дороги, моря и подземелья.</p>
+                </div>
+                <div class="about__feature reveal">
+                    <h3>PvP и осады</h3>
+                    <p>Открытый PvP на спорных территориях. Осады замков, битвы за ресурсы.</p>
+                </div>
+                <div class="about__feature reveal">
+                    <h3>Гильдии и политика</h3>
+                    <p>Создавай гильдию, заключай союзы, захватывай территории.</p>
+                </div>
+                <div class="about__feature reveal">
+                    <h3>Расы и классы</h3>
+                    <p>Шесть рас с уникальными способностями. Классические архетипы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ КАРТА МИРА ============ -->
+    <section class="map-section section" id="map">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Карта</div>
+                <h2 class="section__title">Карта Эйры</h2>
+                <p class="section__text">Четыре фракции, пустыня и небо. Кликни по региону, чтобы узнать больше.</p>
+            </div>
+
+            <div class="reveal" data-component="world-map"></div>
+        </div>
+    </section>
+
+    <!-- ============ РЕГИОНЫ ============ -->
+    <section class="world section" id="world">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Мир</div>
+                <h2 class="section__title">Стороны Эйры</h2>
+                <p class="section__text">Четыре фракции, изгой и наблюдатель. Каждый — со своей расой, культурой и
+                    философией.</p>
+            </div>
+
+            <!-- ФРАКЦИИ -->
+            <div class="regions-group reveal">
+                <div class="regions-group__head">
+                    <h3 class="regions-group__title">Фракции</h3>
+                    <p class="regions-group__desc">Четыре играбельные империи. Выбирай сторону.</p>
+                </div>
+                <div class="world__grid">
+                    <a href="region.html?id=eldarhalm" class="region-card">
+                        <div class="region-card__status">Фракция</div>
+                        <figure data-region="eldarhalm" class="img-slot img-slot--4x3"
+                            data-label="images/regions/eldarhalm.jpg">
+                            <img src="images/regions/eldarhalm.jpg" alt="Солнечные Земли" loading="lazy"
+                                onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                        </figure>
+                        <div class="region-card__body">
+                            <div class="world__region">Восток · Люди</div>
+                            <h3>Солнечные Земли</h3>
+                            <p>Равнины, торговые пути, крепости. Империя на грани войны.</p>
+                        </div>
+                    </a>
+                    <a href="region.html?id=imirdal" class="region-card">
+                        <div class="region-card__status">Фракция</div>
+                        <figure data-region="imirdal" class="img-slot img-slot--4x3"
+                            data-label="images/regions/imirdal.jpg">
+                            <img src="images/regions/imirdal.jpg" alt="Громовой Имирдал" loading="lazy"
+                                onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                        </figure>
+                        <div class="region-card__body">
+                            <div class="world__region">Запад · Великаны</div>
+                            <h3>Громовой Имирдал</h3>
+                            <p>Вечные льды, громо-звери, портал на Парящие Острова.</p>
+                        </div>
+                    </a>
+                    <a href="region.html?id=aenordal" class="region-card">
+                        <div class="region-card__status">Фракция</div>
+                        <figure data-region="aenordal" class="img-slot img-slot--4x3"
+                            data-label="images/regions/aenordal.jpg">
+                            <img src="images/regions/aenordal.jpg" alt="Аэнордал" loading="lazy"
+                                onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                        </figure>
+                        <div class="region-card__body">
+                            <div class="world__region">Центр · Эльфы</div>
+                            <h3>Аэнордал</h3>
+                            <p>Вечный лес. Древо Мудрости, священные рощи, тишина.</p>
+                        </div>
+                    </a>
+                    <a href="region.html?id=swamp" class="region-card">
+                        <div class="region-card__status">Фракция</div>
+                        <figure data-region="swamp" class="img-slot img-slot--4x3"
+                            data-label="images/regions/swamp.jpg">
+                            <img src="images/regions/swamp.jpg" alt="Болотная Империя" loading="lazy"
+                                onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                        </figure>
+                        <div class="region-card__body">
+                            <div class="world__region">Юг · Болотный народ</div>
+                            <h3>Болотная Империя</h3>
+                            <p>Русалки, рыболюди, ящеролюди. Интриги, пророчества.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ИЗГОЙ -->
+            <div class="regions-group reveal">
+                <div class="regions-group__head">
+                    <h3 class="regions-group__title">Изгой</h3>
+                    <p class="regions-group__desc">Территория свободного PvP. Нет власти — только гильдии и песок.</p>
+                </div>
+                <div class="world__grid">
+                    <a href="region.html?id=jauhar" class="region-card region-card--outcast">
+                        <div class="region-card__status region-card__status--outcast">Изгой</div>
+                        <figure data-region="jauhar" class="img-slot img-slot--4x3"
+                            data-label="images/regions/jauhar.jpg">
+                            <img src="images/regions/jauhar.jpg" alt="Пустыня Джаухар" loading="lazy"
+                                onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                        </figure>
+                        <div class="region-card__body">
+                            <div class="world__region">Пески · Изгои</div>
+                            <h3>Пустыня Джаухар</h3>
+                            <p>Нейтральная земля. Джин исчез. Здесь принимают всех.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- НАБЛЮДАТЕЛЬ -->
+            <div class="regions-group reveal">
+                <div class="regions-group__head">
+                    <h3 class="regions-group__title">Наблюдатель</h3>
+                    <p class="regions-group__desc">Финальная локация. Сюда попадают лишь в конце пути.</p>
+                </div>
+                <div class="world__grid">
+                    <a href="region.html?id=heavenly" class="region-card region-card--observer">
+                        <div class="region-card__status region-card__status--observer">Наблюдатель</div>
+                        <figure data-region="heavenly" class="img-slot img-slot--4x3"
+                            data-label="images/regions/heavenly.jpg">
+                            <img src="images/regions/heavenly.jpg" alt="Парящие Острова" loading="lazy"
+                                onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                        </figure>
+                        <div class="region-card__body">
+                            <div class="world__region">Небо · Магия</div>
+                            <h3>Парящие Острова</h3>
+                            <p>Знания, Хранитель. Место, откуда видно весь мир.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============ ПЕРСОНАЖИ ============ -->
+    <section class="characters-home section" id="characters">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Лица Эйры</div>
+                <h2 class="section__title">Те, кто правит</h2>
+                <p class="section__text">Основатели империй и те, кто продолжает их дело — или разрушает.</p>
+            </div>
+
+            <div class="chars-grid-home">
+                <a href="characters.html" class="char-card-home reveal">
+                    <figure data-race="people" class="img-slot img-slot--3x4" data-label="images/characters/eldar.jpg">
+                        <img src="images/characters/eldar.jpg" alt="Великий Элдар" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card-home__body">
+                        <div class="char-card__role">Люди</div>
+                        <div class="char-card__name">Великий Элдар</div>
+                    </div>
+                </a>
+                <a href="character.html?id=imir" class="char-card-home reveal">
+                    <figure class="img-slot img-slot--3x4" data-race="giants" data-label="images/characters/imir.jpg">
+                        <img src="images/characters/imir.jpg" alt="Объединитель Имир" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card-home__body">
+                        <div class="char-card__role">Великаны</div>
+                        <div class="char-card__name">Объединитель Имир</div>
+                    </div>
+                </a>
+                <a href="characters.html" class="char-card-home reveal">
+                    <figure data-race="elves" class="img-slot img-slot--3x4" data-label="images/characters/aenor.jpg">
+                        <img src="images/characters/aenor.jpg" alt="Вечный Аэнор" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card-home__body">
+                        <div class="char-card__role">Эльфы</div>
+                        <div class="char-card__name">Вечный Аэнор</div>
+                    </div>
+                </a>
+                <a href="characters.html" class="char-card-home reveal">
+                    <figure data-race="swamp" class="img-slot img-slot--3x4" data-label="images/characters/undine.jpg">
+                        <img src="images/characters/undine.jpg" alt="Первая Ундина" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card-home__body">
+                        <div class="char-card__role">Болота</div>
+                        <div class="char-card__name">Первая Ундина</div>
+                    </div>
+                </a>
+                <a href="characters.html" class="char-card-home reveal">
+                    <figure data-race="desert" class="img-slot img-slot--3x4" data-label="images/characters/hakim.jpg">
+                        <img src="images/characters/hakim.jpg" alt="Хаким-Кадир" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card-home__body">
+                        <div class="char-card__role">Пустыня</div>
+                        <div class="char-card__name">Хаким-Кадир</div>
+                    </div>
+                </a>
+                <a href="characters.html" class="char-card-home reveal">
+                    <figure data-race="heavenly" class="img-slot img-slot--3x4"
+                        data-label="images/characters/creator.jpg">
+                        <img src="images/characters/creator.jpg" alt="Создатель" loading="lazy"
+                            onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+                    </figure>
+                    <div class="char-card-home__body">
+                        <div class="char-card__role">Парящие Острова</div>
+                        <div class="char-card__name">Создатель</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="characters-home__cta reveal">
+                <a href="characters.html" class="btn btn--ghost">Все персонажи</a>
+            </div>
+        </div>
+    </section>
+    <!-- ============ ТЕСТ ============ -->
+    <section class="quiz-home section" id="quiz-home">
+        <div class="container">
+            <div class="section__header section__header--center reveal">
+                <div class="section__label section__label--center">Несерьёзный тест</div>
+                <h2 class="section__title">Кем бы ты был в Эйре?</h2>
+                <p class="section__text">Шесть глупых вопросов. Один результат. На игру никак не влияет.</p>
+                <div style="margin-top: 2.5rem;">
+                    <a href="quiz.html" class="btn">Пройти тест</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ============ ЗАГАДКИ ============ -->
+    <section class="mysteries-home section" id="mysteries">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Загадки</div>
+                <h2 class="section__title">Что скрывает Эйра</h2>
+                <p class="section__text">Ответов пока нет. Но вопросы уже здесь.</p>
+            </div>
+
+            <div class="mystery-grid">
+                <div class="mystery-card reveal">
+                    <div class="mystery-card__number">01</div>
+                    <h3 class="mystery-card__question">Кто зовёт героя?</h3>
+                    <p class="mystery-card__hint">Голоса звучат в тумане, у воды, во снах. Они не говорят зачем.</p>
+                </div>
+                <div class="mystery-card reveal">
+                    <div class="mystery-card__number">02</div>
+                    <h3 class="mystery-card__question">Что скрывает Хранитель?</h3>
+                    <p class="mystery-card__hint">Он создал мир и ушёл. Он наблюдает, но не вмешивается.</p>
+                </div>
+                <div class="mystery-card reveal">
+                    <div class="mystery-card__number">03</div>
+                    <h3 class="mystery-card__question">Где Зал «Эйра»?</h3>
+                    <p class="mystery-card__hint">Его основали в год 5. Его помнят двое. Найти его — нельзя.</p>
+                </div>
+            </div>
+
+            <div class="mysteries-home__cta reveal">
+                <a href="mysteries.html" class="btn btn--ghost">Все загадки</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ФИЛОСОФИЯ ============ -->
+    <section class="philosophy-home section" id="philosophy">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Основа</div>
+                <h2 class="section__title">Философия Эйры</h2>
+                <p class="section__text">Не правила. Просто то, как этот мир смотрит на себя.</p>
+            </div>
+
+            <div class="philosophy-home__grid">
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-card__title">Путь важнее цели</div>
+                    <p class="philosophy-card__text">Здесь не говорят «я достиг». Говорят — «я шёл».</p>
+                </div>
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-card__title">Баланс — не добро и зло</div>
+                    <p class="philosophy-card__text">Убрать одну сторону — разрушится всё.</p>
+                </div>
+                <div class="philosophy-card reveal">
+                    <div class="philosophy-card__title">У каждого ответа есть цена</div>
+                    <p class="philosophy-card__text">Выбор — это не «правильно». Это «что ты готов заплатить».</p>
+                </div>
+            </div>
+
+            <div class="philosophy-home__cta reveal">
+                <a href="philosophy.html" class="btn btn--ghost">Читать полностью</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DEVLOG ============ -->
+    <section class="devlog section" id="devlog">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Дневник</div>
+                <h2 class="section__title">Дневник разработки</h2>
+                <p class="section__text">Каждую неделю — что сделано, что пошло не так, что дальше.</p>
+            </div>
+            <div class="devlog__list">
+                <a href="devlog.html" class="devlog__item reveal">
+                    <div class="devlog__date">Неделя 0</div>
+                    <div class="devlog__title">Начало. Мир, который жил год в голове</div>
+                    <div class="devlog__arrow">→</div>
+                </a>
+                <a href="devlog.html" class="devlog__item reveal">
+                    <div class="devlog__date">Неделя 1</div>
+                    <div class="devlog__title">Сайт: с чего начать, когда всё есть и ничего нет</div>
+                    <div class="devlog__arrow">→</div>
+                </a>
+                <a href="devlog.html" class="devlog__item reveal">
+                    <div class="devlog__date">Неделя 2</div>
+                    <div class="devlog__title">YouTube: показать процесс, а не результат</div>
+                    <div class="devlog__arrow">→</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ КОМАНДА ============ -->
+    <section class="team section" id="team">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Команда</div>
+                <h2 class="section__title">Кто делает Эйру</h2>
+                <p class="section__text">Пока это один человек. Но я ищу тех, кто хочет создать что-то большее.</p>
+            </div>
+            <div class="team__grid">
+                <div class="team__card reveal">
+                    <div class="team__role">Автор идеи</div>
+                    <div class="team__name">Андрей Коновалов</div>
+                    <div class="team__desc">Мир, лор, сюжет, геймдизайн</div><span class="team__status">В проекте</span>
+                </div>
+                <div class="team__card reveal">
+                    <div class="team__role">Программист</div>
+                    <div class="team__name">Ищем</div>
+                    <div class="team__desc">Unity / Unreal, сетевой код</div><span
+                        class="team__status team__status--open">Открыто</span>
+                </div>
+                <div class="team__card reveal">
+                    <div class="team__role">Художник</div>
+                    <div class="team__name">Ищем</div>
+                    <div class="team__desc">2D / 3D, концепты, UI</div><span
+                        class="team__status team__status--open">Открыто</span>
+                </div>
+                <div class="team__card reveal">
+                    <div class="team__role">Звук</div>
+                    <div class="team__name">Ищем</div>
+                    <div class="team__desc">Музыка, SFX, атмосфера</div><span
+                        class="team__status team__status--open">Открыто</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ КОНТАКТЫ ============ -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section__header section__header--center reveal">
+                <div class="section__label section__label--center">Контакты</div>
+                <h2 class="section__title">Следить за разработкой</h2>
+                <p class="section__text">Хочешь помочь, следить за проектом или просто поговорить — пиши.</p>
+            </div>
+            <div class="contact__links reveal">
+                <!-- ЗАМЕНИТЬ НА РЕАЛЬНЫЙ ИНВАЙТ DISCORD -->
+                <a href="https://discord.gg/" class="contact__link" target="_blank" rel="noopener">
+                    <span>Discord</span>
+                </a>
+                <!-- ЗАМЕНИТЬ НА РЕАЛЬНЫЙ КАНАЛ TELEGRAM -->
+                <a href="https://t.me/" class="contact__link" target="_blank" rel="noopener">
+                    <span>Telegram</span>
+                </a>
+                <a href="mailto:contact@echo-aera.game" class="contact__link">
+                    <span>Email</span>
+                </a>
+                <!-- ЗАМЕНИТЬ НА РЕАЛЬНЫЙ КАНАЛ YOUTUBE -->
+                <a href="https://youtube.com/" class="contact__link" target="_blank" rel="noopener">
+                    <span>YouTube</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div data-component="footer"></div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

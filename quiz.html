@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кем бы ты был в Эйре? — Эхо Эйры</title>
+    <meta name="description" content="Шуточный тест. Шесть глупых вопросов — один результат. На игру никак не влияет.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="js/head.js"></script>
+</head>
+
+<body>
+
+    <div class="mist"></div>
+    <div data-component="header"></div>
+
+    <header class="page-hero">
+        <div class="page-hero__label">Несерьёзный тест</div>
+        <h1 class="page-hero__title">Кем бы ты был в Эйре?</h1>
+        <p class="page-hero__subtitle">Шесть глупых вопросов. Один результат. На игру никак не влияет.</p>
+    </header>
+
+    <section class="page-section">
+        <div class="container">
+
+            <div class="quiz" id="quiz">
+
+                <div class="quiz__progress">
+                    <div class="quiz__progress-bar" id="quizProgress"></div>
+                </div>
+                <div class="quiz__counter" id="quizCounter">Вопрос 1 из 6</div>
+
+                <div class="quiz__question" id="quizQuestion"></div>
+
+                <div class="quiz__answers" id="quizAnswers"></div>
+
+            </div>
+
+            <div class="quiz-result" id="quizResult" style="display: none;">
+                <div class="quiz-result__label">По версии звёзд, ты —</div>
+
+                <figure class="img-slot img-slot--16x9 quiz-result__art" data-label="Арт результата (images/quiz/…)"
+                    id="quizResultArt">
+                    <img src="" alt="" id="quizResultArtImg">
+                </figure>
+
+                <h2 class="quiz-result__title" id="quizResultTitle">—</h2>
+                <p class="quiz-result__tagline" id="quizResultTagline">—</p>
+                <p class="quiz-result__desc" id="quizResultDesc">—</p>
+
+                <div class="quiz-result__class">
+                    <div class="quiz-result__class-label">Класс</div>
+                    <div class="quiz-result__class-name" id="quizResultClass">—</div>
+                    <div class="quiz-result__class-tagline" id="quizResultClassTagline">—</div>
+                </div>
+
+                <div class="quiz-result__actions">
+                    <a href="#" class="btn" id="quizResultRegion">Открыть регион</a>
+                    <button class="btn" id="quizShare">Поделиться</button>
+                    <a href="races.html" class="btn btn--ghost">Все расы</a>
+                    <button class="btn btn--ghost" id="quizRestart">Пройти заново</button>
+                </div>
+
+                <div class="quiz-result__share-feedback" id="quizShareFeedback"></div>
+
+                <div class="quiz-result__joke">
+                    <p><strong>Это шутка.</strong> Тест не определяет твой класс в игре. Он ничего не определяет. Он
+                        просто существует.</p>
+                    <p>Если результат совпал с тем, кем ты хотел быть — отлично. Если нет — ты всё равно не можешь его
+                        поменять.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div data-component="footer"></div>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена — Эхо Эйры</title>
+    <meta name="description" content="Страница не найдена. Вернись на главную «Эхо Эйры».">
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="js/head-404.js"></script>
+</head>
+
+<body>
+
+    <div class="mist"></div>
+
+    <div class="page-404">
+        <div class="page-404__inner">
+            <div class="page-404__label">Ошибка 404</div>
+            <h1 class="page-404__title" id="page404Title">404</h1>
+            <p class="page-404__text">Ты забрёл не туда. Этой тропы нет на карте.</p>
+            <p class="page-404__hint" id="page404Hint">Кликни на число 5 раз. Вдруг что-то произойдёт.</p>
+            <a href="index.html" class="btn">Вернуться на главную</a>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var title = document.getElementById('page404Title');
+            var hint = document.getElementById('page404Hint');
+            if (!title || !hint) return;
+
+            var clicks = 0;
+            var messages = [
+                '1 из 5…',
+                '2 из 5…',
+                '3 из 5… Не сдавайся.',
+                '4 из 5… Почти.',
+                '5 из 5… Ты нашёл то, что не искал.'
+            ];
+
+            title.addEventListener('click', function () {
+                if (clicks < 5) {
+                    hint.textContent = messages[clicks];
+                    clicks++;
+
+                    // Микро-пульс при клике
+                    title.style.transform = 'scale(1.05)';
+                    setTimeout(function () {title.style.transform = '';}, 120);
+                }
+
+                if (clicks === 5) {
+                    hint.textContent = messages[4];
+
+                    // Финальный эффект
+                    setTimeout(function () {
+                        title.textContent = '✦';
+                        title.style.transition = 'all 0.8s ease';
+                        title.style.color = 'var(--gold)';
+                        title.style.textShadow = '0 0 100px rgba(201, 162, 39, 0.9)';
+                        document.body.style.background = 'radial-gradient(circle at 50% 40%, rgba(201, 162, 39, 0.15), transparent 60%), #03040a';
+                    }, 300);
+
+                    setTimeout(function () {
+                        hint.textContent = 'Где-то в Эйре открылась дверь. Но не здесь.';
+                    }, 1200);
+                }
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

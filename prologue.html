@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пролог — Эхо Эйры</title>
+    <meta name="description" content="Пролог мира Эйры. Начни свой путь.">
+    <meta name="robots" content="noindex">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        html, body { background: #03040a; margin: 0; color: #d8d8dc; }
+        body { font-family: system-ui, sans-serif; }
+        a { color: inherit; text-decoration: none; }
+        *, *::before, *::after { box-sizing: border-box; }
+    </style>
+
+    <script src="js/head-prologue.js"></script>
+</head>
+
+<body class="prologue">
+
+    <div class="prologue__stars"></div>
+    <div class="prologue__mist"></div>
+
+    <a href="index.html" class="prologue__skip" id="prologueSkip">Пропустить →</a>
+
+    <main class="prologue__stage" id="prologueStage">
+
+        <div class="prologue__scene" id="scene">
+            <p class="prologue__text" id="sceneText"></p>
+        </div>
+
+        <div class="prologue__choices" id="sceneChoices"></div>
+
+        <div class="prologue__continue" id="sceneContinue" style="display: none;">
+            <button class="prologue__continue-btn" id="continueBtn">Продолжить</button>
+        </div>
+
+        <div class="prologue__final" id="sceneFinal" style="display: none;">
+            <div class="prologue__final-title">Эхо Эйры</div>
+            <p class="prologue__final-subtitle">Путь начинается.</p>
+            <div class="prologue__final-actions">
+                <a href="world.html" class="btn">Исследовать мир</a>
+                <a href="index.html" class="btn btn--ghost">На главную</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script type="module" src="js/app-prologue.js"></script>
+</body>
+
+</html>
